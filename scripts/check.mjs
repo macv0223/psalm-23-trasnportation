@@ -1,0 +1,14 @@
+import {readFileSync,existsSync} from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const requireFile=p=>{if(!existsSync(path.join(root,p)))throw new Error(`Missing ${p}`)};
+for(const p of ['dist/index.html','dist/admin/index.html','dist/admin/config.json','dist/admin/setup-status.json','dist/assets/app.js','dist/assets/site.css','dist/data/site.json','dist/assets/uploads/psalm23-truck-logo.png','dist/assets/favicon.png'])requireFile(p);
+const page=readFileSync(path.join(root,'dist/index.html'),'utf8');
+for(const phrase of ['Psalm 23 Transportation','Hauling.','Done right.','281-766-1320','Psalm23Transportation@yahoo.com','What needs transporting?','id="quote-form"','assets/app.js'])if(!page.includes(phrase))throw new Error(`Missing expected page content: ${phrase}`);
+const config=JSON.parse(readFileSync(path.join(root,'dist/admin/config.json'),'utf8'));
+if(config.backend.name!=='github'||config.publish_mode!=='editorial_workflow')throw new Error('CMS not configured as GitHub editorial workflow');
+if(config.collections[0].files[0].file!=='content/site.json')throw new Error('CMS is not bound to the editable JSON');
+const settings=JSON.parse(readFileSync(path.join(root,'dist/admin/setup-status.json'),'utf8'));
+if(settings.configured&&!settings.repository)throw new Error('CMS ready without repository');
+console.log('Build checks passed.');
