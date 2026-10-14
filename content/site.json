@@ -22,7 +22,7 @@
     "eyebrow": "FAMILY-OWNED. FAITH-GUIDED.",
     "headline1": "Moving.",
     "headline2": "With purpose.",
-    "intro": "Family-owned flatbed hauling for equipment, materials, and other items that need moving. Tell us what, where, and when; we’ll help you plan the next step.",
+    "intro": "Family-owned flatbed hauling for equipment, materials, and other items that need moving. Tell us what, where, and when; we\u2019ll help you plan the next step.",
     "primaryButton": "Request a quote",
     "secondaryButton": "Call us",
     "ribbon": "PUTTING THE PIECES TOGETHER, FROM PICKUP TO DELIVERY.",
@@ -33,7 +33,7 @@
     "eyebrow": "CLEAR PLANS. CAREFUL TRANSPORT.",
     "headline1": "From pickup.",
     "headline2": "To delivery.",
-    "intro": "Every job starts with the details. We’ll discuss what needs moving, the route, and your timeframe before confirming availability and pricing.",
+    "intro": "Every job starts with the details. We\u2019ll discuss what needs moving, the route, and your timeframe before confirming availability and pricing.",
     "cards": [
       {
         "number": "01",
@@ -48,7 +48,7 @@
       {
         "number": "03",
         "title": "Local & longer-distance trips",
-        "description": "From nearby pickups to longer journeys, share the starting point, destination, and preferred date. We’ll confirm what’s possible."
+        "description": "From nearby pickups to longer journeys, share the starting point, destination, and preferred date. We\u2019ll confirm what\u2019s possible."
       }
     ]
   },
@@ -58,16 +58,16 @@
     "headline2": "Driven by care.",
     "paragraph1": "Psalm 23 Transportation is a family-owned business founded by Isabella, her boyfriend, and her dad. Their shared Christian faith is at the heart of what they are building together.",
     "paragraph2": "Like the interlocking pieces on our truck, every successful journey depends on the details coming together. We aim to communicate clearly, treat people fairly, and approach every job with care.",
-    "verse": "“The Lord is my shepherd; I shall not want.”",
+    "verse": "\u201cThe Lord is my shepherd; I shall not want.\u201d",
     "verseCitation": "Psalm 23:1",
-    "storyImage": "",
-    "storyImageAlt": ""
+    "storyImage": "assets/uploads/psalm23-puzzle-cross.webp",
+    "storyImageAlt": "Psalm 23 Transportation puzzle-pattern cross in bronze and green"
   },
   "quote": {
-    "eyebrow": "LET’S PLAN YOUR TRANSPORT",
+    "eyebrow": "LET\u2019S PLAN YOUR TRANSPORT",
     "headline1": "Ready to",
     "headline2": "get moving?",
-    "intro": "Tell us what needs transporting, where it should be collected, and where it’s going. We’ll review the details and get back to you about availability and a quote.",
+    "intro": "Tell us what needs transporting, where it should be collected, and where it\u2019s going. We\u2019ll review the details and get back to you about availability and a quote.",
     "smallNote": "Prefer a quick conversation? Call, text, or email us directly.",
     "nameLabel": "Your name",
     "namePlaceholder": "First and last name",

@@ -65,6 +65,7 @@ test('alternative truck branding uses a single truck image and restores puzzle m
   assert.match(html,/hero-road/);
   assert.match(html,/psalm23-truck-logo\.png/);
   assert.match(html,/PUTTING THE PIECES TOGETHER/);
-  assert.doesNotMatch(html,/psalm23-puzzle-cross|hauling-scene\.svg|story-cross-image|brand-cross/);
+  assert.match(html,/psalm23-puzzle-cross\.webp/);
+  assert.doesNotMatch(html,/hauling-scene\.svg|story-cross-image|brand-cross/);
   assert.equal(data.story.paragraph2.includes('interlocking pieces on our truck'),true);
 });
