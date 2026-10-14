@@ -46,7 +46,7 @@ export function renderPage(data){
   const {settings:s,navigation:n,hero:h,services:v,story:y,quote:q}=data;
   const phone=phoneDigits(s.phone),link=`tel:${encodeURIComponent(phone)}`;
   const style=`--brand-primary:${color(s.primaryColor,'#12312f')};--brand-accent:${color(s.accentColor,'#db9d46')}`;
-  const logo=picture(s.logo,s.logoAlt,'brand-cross','assets/uploads/psalm23-truck-logo.png',true);
+  const logo=picture(s.logo,s.logoAlt,'brand-truck','assets/uploads/psalm23-truck-logo.png',true);
   const mark=picture(s.logo,'','brand-symbol','assets/uploads/psalm23-truck-logo.png',true);
   const scene=media(h.heroImage)?`<div class="hero-scene">${picture(h.heroImage,h.heroImageAlt,'hero-picture','assets/uploads/psalm23-truck-logo.png')}</div>`:'';
   const storyImage=media(y.storyImage)?`<div class="story-upload">${picture(y.storyImage,y.storyImageAlt,'story-upload-image')}</div>`:'';
@@ -64,7 +64,7 @@ export function renderPage(data){
       <h1 id="hero-title">${esc(h.headline1)}<br><em>${esc(h.headline2)}</em></h1>
       <p class="hero-intro">${esc(h.intro)}</p>
       <div class="hero-actions"><a class="btn btn-primary" href="#quote">${esc(h.primaryButton)} <span aria-hidden="true">↗</span></a><a class="btn btn-text" href="${esc(link)}">${esc(h.secondaryButton)} <span aria-hidden="true">↗</span></a></div>
-      <p class="hero-verse"><span aria-hidden="true">✝</span> ${esc(s.tagline.toUpperCase())} <span class="hero-verse-ref">${esc(s.verseReference)}</span></p>
+      <p class="hero-verse"><span aria-hidden="true">✦</span> ${esc(s.tagline.toUpperCase())} <span class="hero-verse-ref">${esc(s.verseReference)}</span></p>
     </div>
     <div class="hero-media"><div class="hero-visual" aria-label="Transportation truck logo on a road"><div class="hero-road" aria-hidden="true"></div>${scene}<div class="hero-logo-panel">${logo}</div><div class="visual-corner"><span>23</span><small>FLATBED SERVICE</small></div></div><span class="vertical-label" aria-hidden="true">READY TO ROLL</span></div>
   </div><div class="hero-ribbon"><div class="container"><span class="ribbon-icon" aria-hidden="true">✳</span><p>${esc(h.ribbon)}</p><span class="ribbon-icon" aria-hidden="true">✳</span></div></div></section>
@@ -72,7 +72,7 @@ export function renderPage(data){
     <div class="section-heading"><div><p class="eyebrow">${esc(v.eyebrow)}</p><h2 id="services-title">${esc(v.headline1)}<br><em>${esc(v.headline2)}</em></h2></div><p class="section-intro">${esc(v.intro)}</p></div>
     <div class="service-grid">${cards}</div><a class="section-link" href="#quote">Tell us what you need moved <span aria-hidden="true">↗</span></a>
   </div></section>
-  <section class="story-section" id="story" aria-labelledby="story-title"><div class="container story-grid"><div class="story-art"><div class="story-frame">${picture(s.logo,'','story-cross-image','assets/uploads/psalm23-truck-logo.png')}<div class="story-orbit orbit-one"></div><div class="story-orbit orbit-two"></div><div class="story-lightbox"><span>23</span><small>FAITH, FAMILY<br>&amp; HAULING</small></div>${storyImage}</div><div class="art-caption">READY TO SERVE <span>•</span> READY TO ROLL</div></div>
+  <section class="story-section" id="story" aria-labelledby="story-title"><div class="container story-grid"><div class="story-art"><div class="story-frame">${picture(s.logo,'','story-truck-image','assets/uploads/psalm23-truck-logo.png')}<div class="story-orbit orbit-one"></div><div class="story-orbit orbit-two"></div><div class="story-lightbox"><span>23</span><small>FAITH, FAMILY<br>&amp; SERVICE</small></div>${storyImage}</div><div class="art-caption">ROOTED IN FAITH <span>•</span> DRIVEN BY FAMILY</div></div>
     <div class="story-copy"><p class="eyebrow eyebrow-light">${esc(y.eyebrow)}</p><h2 id="story-title">${esc(y.headline1)}<br><em>${esc(y.headline2)}</em></h2><p>${esc(y.paragraph1)}</p><p>${esc(y.paragraph2)}</p><blockquote><p>${esc(y.verse)}</p><cite>${esc(y.verseCitation)}</cite></blockquote></div>
   </div></section>
   <section class="quote-section" id="quote" aria-labelledby="quote-title"><div class="container quote-grid"><div class="quote-info"><p class="eyebrow">${esc(q.eyebrow)}</p><h2 id="quote-title">${esc(q.headline1)}<br><em>${esc(q.headline2)}</em></h2><p>${esc(q.intro)}</p><div class="contact-links"><a href="${esc(link)}"><span class="contact-icon" aria-hidden="true">↗</span><span><small>CALL US</small><strong>${esc(s.phone)}</strong></span></a><a href="mailto:${esc(s.email)}"><span class="contact-icon" aria-hidden="true">✉</span><span><small>EMAIL US</small><strong>${esc(s.email)}</strong></span></a></div><p class="contact-note">${esc(q.smallNote)} <a class="contact-sms" href="sms:${esc(phone)}">Text us directly ↗</a></p></div>

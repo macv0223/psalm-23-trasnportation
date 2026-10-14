@@ -8,12 +8,14 @@ const clone=()=>structuredClone(data);
 test('revised customer-facing copy and verified contact details',()=>{
   assert.equal(validateSite(data),true);
   const html=renderDocument(data);
-  assert.match(html,/Hauling\./);
-  assert.match(html,/Done right\./);
+  assert.match(html,/Moving\./);
+  assert.match(html,/With purpose\./);
   assert.match(html,/281-766-1320/);
   assert.match(html,/Psalm23Transportation@yahoo.com/);
   assert.match(html,/Isabella, her boyfriend, and her dad/);
-  assert.match(html,/Reliable flatbed transport/i);
+  assert.match(html,/Putting the pieces together/i);
+  assert.match(html,/Like the interlocking pieces on our truck/i);
+  assert.doesNotMatch(html,/pieces of our cross/i);
   assert.match(html,/What needs transporting\?/);
   assert.doesNotMatch(html,/Your load|We.take your load/i);
   assert.doesNotMatch(html,/psalm-23-transportation\.igarza5652\.chatgpt\.site/);
@@ -56,3 +58,13 @@ test('CMS enables editorial workflow and edits single source content file',()=>{
   assert.equal(isConfigured({...settings,oauthOrigin:''}),false);
 });
 test('phone number normalization is fit for tel: and sms: links',()=>assert.equal(phoneDigits('(281) 766-1320'),'2817661320'));
+
+test('alternative truck branding uses a single truck image and restores puzzle messaging',()=>{
+  const html=renderDocument(data);
+  assert.equal(data.settings.logo,'assets/uploads/psalm23-truck-logo.png');
+  assert.match(html,/hero-road/);
+  assert.match(html,/psalm23-truck-logo\.png/);
+  assert.match(html,/PUTTING THE PIECES TOGETHER/);
+  assert.doesNotMatch(html,/psalm23-puzzle-cross|hauling-scene\.svg|story-cross-image|brand-cross/);
+  assert.equal(data.story.paragraph2.includes('interlocking pieces on our truck'),true);
+});

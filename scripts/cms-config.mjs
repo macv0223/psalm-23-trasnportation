@@ -7,7 +7,7 @@ const hexPattern=['^#[0-9a-fA-F]{6}$','Use a six-digit hex value, such as #12312
 const sectionSettings=object('settings','Branding & contact details',[
   str('businessName','Business name'),str('brandTop','Logo wordmark: top line'),str('brandBottom','Logo wordmark: bottom line'),
   str('phone','Phone / text number'),str('email','Contact email',{pattern:['^[^\\s@<>]+@[^\\s@<>]+\\.[^\\s@<>]+$','Enter a valid email address']}),
-  photo('logo','Primary puzzle-cross logo',{hint:'The new bronze-and-green jigsaw cross is already installed. Upload a replacement here only if the business approves a new logo.'}),
+  photo('logo','Primary jigsaw-pattern truck logo',{hint:'The bronze-and-green puzzle-pattern truck is installed. Upload a replacement only when approved by the business owner.'}),
   txt('logoAlt','Logo image description for accessibility'),str('tagline','Brand tagline'),str('verseReference','Scripture reference'),
   str('copyrightYear','Copyright year'),str('primaryColor','Dark green brand color',{pattern:hexPattern}),str('accentColor','Gold brand color',{pattern:hexPattern})
 ]);

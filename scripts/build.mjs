@@ -29,6 +29,9 @@ function build(){
   mkdirSync(path.join(dist,'data'),{recursive:true});
   writeFileSync(path.join(dist,'data','site.json'),JSON.stringify(data,null,2));
   writeFileSync(path.join(dist,'robots.txt'),'User-agent: *\nAllow: /\n');
+  // Mirror the generated public site to repository root for branch-based GitHub Pages.
+  // Without this step the root index.html can silently publish outdated imagery.
+  copyRecursive(dist,root);
   console.log(`Built ${dist}. Editor access: ${isConfigured(setup)?'ready for deployed OAuth Worker':'requires GitHub/Cloudflare setup'}.`);
 }
 build();

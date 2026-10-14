@@ -23,11 +23,11 @@ with sync_playwright() as p:
   page.set_content(page_html,wait_until='domcontentloaded')
   page.wait_for_timeout(300)
   headline=' '.join(page.locator('h1').inner_text().split())
-  assert headline=='Hauling. Done right.',f'{name}: bad headline {headline}'
+  assert headline=='Moving. With purpose.',f'{name}: bad headline {headline}'
   assert page.locator('.service-card').count()==3
   assert page.locator('.brand-symbol').count()==2
-  assert page.locator('.brand-cross').count()==1
-  assert page.locator('.story-cross-image').count()==1
+  assert page.locator('.brand-truck').count()==1
+  assert page.locator('.story-truck-image').count()==1
   assert page.locator('#quote-form input').count()==4
   assert page.locator('.quote-info a[href^="tel:"]').count()==1
   assert page.locator('.quote-info a[href^="mailto:"]').count()==1
@@ -45,7 +45,7 @@ with sync_playwright() as p:
   assert widths[0]<=w+1,(name,'body overflow',widths)
   assert hero[0]<=hero[1]+4,(name,'headline overflow',hero)
   if name in ('desktop','mobile'):
-   out=root.parent/f'Psalm23-truck-logo-{name}.png'
+   out=root.parent/f'Psalm23-fixed-{name}.png'
    page.screenshot(path=str(out),full_page=True,animations='disabled')
    print('Saved screenshot:',out)
   print(name,'viewport:',w,'page width:',widths,'headline width:',hero,'images:',len(images),'JS errors:',errors)

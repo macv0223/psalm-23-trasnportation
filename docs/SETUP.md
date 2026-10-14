@@ -6,16 +6,16 @@ This guide is designed for the site owner. **The website is already built locall
 
 You need a GitHub account, a Cloudflare account for its free Worker, and access to a dedicated domain if you want a custom address. Every person who edits the site must have an approved GitHub account. You do **not** need a credit card for GitHub Pages hosting or to build this website; provider eligibility and limits may change, so confirm the current free-tier terms at setup time.
 
-## Part 1 — Update the existing Psalm23 GitHub website
+## Part 1 — Create a separate GitHub repository for this version
 
-1. Sign in as `macv0223` and open `https://github.com/macv0223/Psalm23-Truck-Logo`.
-2. Extract `Psalm23-UPDATED-macv0223-GitHub-upload.zip` **before** uploading. Use **Add file → Upload files** and upload the files and folders inside the ZIP into the repository **root**. Replace existing website files where GitHub offers to do so; confirm that `index.html`, `assets/`, `public/`, `content/`, `scripts/`, `cms/`, and the hidden `.github/workflows/pages.yml` have been included. If the GitHub web uploader cannot replace a file, commit its replacement through GitHub Desktop instead. Do not upload the ZIP file itself as a lone file.
-3. Commit the changes on `main`. This is the existing site; **do not** create another repository and do not add these files to Thrive PTO.
-4. To publish the mirrored root site immediately, open **Settings → Pages → Build and deployment → Source**, select **Deploy from a branch**, choose `main` and `/(root)`, then save. Check `https://macv0223.github.io/Psalm23-Truck-Logo/` after GitHub Pages finishes publishing.
+1. Sign in to GitHub as `macv0223`. Open your EXISTING public repository with default branch `main` at `https://github.com/macv0223/psalm-23-trasnportation`. Leave the original `Psalm23` cross-logo repository unchanged.
+2. Extract `Psalm23-Truck-v1.1-Puzzle-Copy-GitHub.zip` **before** uploading. Use **Add file → Upload files** and upload the files and folders inside the ZIP into the repository **root**. confirm that `index.html`, `assets/`, `public/`, `content/`, `scripts/`, `cms/`, and the hidden `.github/workflows/pages.yml` have been included. If the GitHub web uploader cannot replace a file, commit its replacement through GitHub Desktop instead. Do not upload the ZIP file itself as a lone file.
+3. Commit the files on `main`. Leave both the original `macv0223/Psalm23` and Thrive PTO repositories untouched.
+4. To publish the mirrored root site immediately, open **Settings → Pages → Build and deployment → Source**, select **Deploy from a branch**, choose `main` and `/(root)`, then save. Check `https://macv0223.github.io/psalm-23-trasnportation/` after GitHub Pages finishes publishing.
 5. **For CMS edits to publish automatically**, change **Settings → Pages → Source** to **GitHub Actions**, open **Actions → Publish Psalm 23 Transportation — Truck Logo Version website**, and run the workflow (or allow it to run on push). This method rebuilds the website from `content/site.json` after each published edit. The Workflow only works if `.github/workflows/pages.yml` was successfully uploaded.
-6. Check desktop/mobile rendering, the puzzle-cross images, phone and email links, and the quote form. The admin workspace at `/admin/` remains disconnected until Parts 2–4 have been completed.
+6. Check desktop/mobile rendering, the puzzle-pattern truck artwork, phone and email links, and the quote form. The admin workspace at `/admin/` remains disconnected until Parts 2–4 have been completed.
 
-The repo already has the correct ownership (`macv0223/Psalm23-Truck-Logo`) and the approved logo is included locally; no previous external logo URL is needed.
+The included config targets the existing truck-logo repository (`macv0223/psalm-23-trasnportation`) and the approved logo is included locally; no previous external logo URL is needed.
 
 ## Part 2 — Make a secure login endpoint on Cloudflare
 
@@ -28,7 +28,7 @@ The repo already has the correct ownership (`macv0223/Psalm23-Truck-Logo`) and t
    | --- | --- | --- |
    | `CMS_ORIGIN` | `https://macv0223.github.io` | Exact origin of the *live editor*, without `/repo/` or a trailing slash. Use your custom domain origin if the editor lives there. |
    | `AUTH_ORIGIN` | `https://psalm-23-transportation-auth.YOURSUBDOMAIN.workers.dev` | Exact Cloudflare Worker origin, no trailing slash. |
-   | `REPOSITORY` | `macv0223/Psalm23-Truck-Logo` | Your real GitHub repository. |
+   | `REPOSITORY` | `macv0223/psalm-23-trasnportation` | Your real GitHub repository. |
    | `PRIVATE_REPOSITORY` | `false` | Set `true` only for private repository installations supported by your GitHub Pages plan. |
 
 5. Add your editor allowlist as **Worker Secrets**:
@@ -44,7 +44,7 @@ The repo already has the correct ownership (`macv0223/Psalm23-Truck-Logo`) and t
 
 1. On GitHub select your profile photo → **Settings → Developer settings → OAuth Apps → New OAuth App**.
 2. Choose `Psalm 23 Transportation — Truck Logo Version Website Editor` as the application name.
-3. Set **Homepage URL** to your live site, e.g. `https://macv0223.github.io/Psalm23-Truck-Logo/`.
+3. Set **Homepage URL** to your live site, e.g. `https://macv0223.github.io/psalm-23-trasnportation/`.
 4. Set **Authorization callback URL** to your exact Cloudflare Worker URL **plus `/callback`**, e.g. `https://psalm-23-transportation-auth.YOURSUBDOMAIN.workers.dev/callback`.
 5. Create the app. Copy **Client ID** and generate a **Client Secret**.
 6. In Cloudflare, add these as **Worker Secrets**, never directly in the repository:
@@ -64,17 +64,17 @@ The Decap CMS editor uses an **editorial workflow**: changes can be drafted and 
 1. On the GitHub repository, open **Settings → Secrets and variables → Actions → Variables → New repository variable**.
 2. Create `CMS_OAUTH_ORIGIN` with **only** the Worker origin, e.g. `https://psalm-23-transportation-auth.YOURSUBDOMAIN.workers.dev` (**no** `/auth`, **no** `/callback`).
 3. Go to **Actions** and rerun the website publish workflow. The GitHub Actions build automatically fills in the repository name and site URL. It does not store any client secrets in the published site.
-4. Visit `https://macv0223.github.io/Psalm23-Truck-Logo/admin/` or `https://YOURDOMAIN/admin/` when a custom domain is active.
+4. Visit `https://macv0223.github.io/psalm-23-trasnportation/admin/` or `https://YOURDOMAIN/admin/` when a custom domain is active.
 5. Select **Sign in to edit with GitHub**, grant the requested access, and check that the editor shows **Edit website → All website content**.
 6. Make a small test change and save it as a draft. Preview it, then publish. Confirm the GitHub action succeeds and the public website updates.
 7. Test an **unapproved** GitHub account too. It should be denied access.
 
 **If OAuth fails:** Confirm the GitHub callback URL matches the Worker URL exactly; Worker `AUTH_ORIGIN` matches the Worker host; `CMS_ORIGIN` matches the website address's origin; `CMS_OAUTH_ORIGIN` is set in GitHub Actions variables; the editor has a correct GitHub account, approved username or verified email, and write access; and all three secrets were configured on the Cloudflare Worker.
 
-## Part 5 — Confirm the puzzle-cross logo and check the quote form
+## Part 5 — Confirm the puzzle-pattern truck and check the quote form
 
-1. The approved bronze-and-forest-green Christian jigsaw-cross logo is now bundled locally and displayed in the navigation, homepage, story panel, footer, favicon, and editor. It does not link to the original site.
-2. If the owner later changes the brand, open **Branding & contact details → Primary puzzle-cross logo** in the CMS and upload the approved replacement. Include an accessible image description.
+1. The approved bronze-and-forest-green jigsaw-pattern truck artwork is bundled locally and displayed in the navigation, homepage, story panel, footer, favicon, and editor. It does not link to the original site.
+2. If the owner later changes the brand, open **Branding & contact details → Primary jigsaw-pattern truck logo** in the CMS and upload the approved replacement. Include an accessible image description.
 3. Update the telephone, email, and any wording the business owner approves. Do not invent insurance, licenses, capacity, or routes.
 4. Make a test quote request on a phone, review that it opens the messaging app with the correct number and details, and **send only a deliberate test message**. On a desktop, use the **Copy request** or **Email instead** options.
 5. Confirm the business actually receives the message and responds. The website itself does not store quote submissions.

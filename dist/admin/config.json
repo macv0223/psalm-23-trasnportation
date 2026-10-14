@@ -1,7 +1,7 @@
 {
   "backend": {
     "name": "github",
-    "repo": "macv0223/Psalm23-Truck-Logo",
+    "repo": "macv0223/psalm-23-trasnportation",
     "branch": "main",
     "base_url": "https://not-configured.invalid",
     "auth_endpoint": "auth",
@@ -10,8 +10,8 @@
   "publish_mode": "editorial_workflow",
   "media_folder": "public/assets/uploads",
   "public_folder": "assets/uploads",
-  "site_url": "https://macv0223.github.io/Psalm23-Truck-Logo/",
-  "display_url": "https://macv0223.github.io/Psalm23-Truck-Logo/",
+  "site_url": "https://macv0223.github.io/psalm-23-trasnportation/",
+  "display_url": "https://macv0223.github.io/psalm-23-trasnportation/",
   "logo_url": "../assets/favicon.png",
   "show_preview_links": false,
   "collections": [
@@ -62,11 +62,11 @@
                 },
                 {
                   "name": "logo",
-                  "label": "Primary puzzle-cross logo",
+                  "label": "Primary jigsaw-pattern truck logo",
                   "widget": "image",
                   "required": false,
                   "allow_multiple": false,
-                  "hint": "The new bronze-and-green jigsaw cross is already installed. Upload a replacement here only if the business approves a new logo."
+                  "hint": "The bronze-and-green puzzle-pattern truck is installed. Upload a replacement only when approved by the business owner."
                 },
                 {
                   "name": "logoAlt",

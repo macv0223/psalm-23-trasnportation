@@ -1,24 +1,24 @@
-# Content provenance and quality checklist
+# Source notes & launch checks — truck-logo alternative
 
-Original page: https://psalm-23-transportation.igarza5652.chatgpt.site/
+This second website is an alternative branding direction for **Psalm 23 Transportation**.
+Business details and the family story were carried over from the first website.
+The primary image is the client's selected green-and-bronze puzzle-pattern flatbed
+truck, stored at `public/assets/uploads/psalm23-truck-logo.png`. The road is drawn
+with CSS. There are no other truck or cross graphics used in the public site.
 
-Reviewed 2026-10-14. The source was a single-page site titled "Psalm 23 Transportation — Truck Logo Version | Anything. Anywhere." with `What we haul`, `Our story`, and `Request a quote` sections. The recreated page updates service descriptions and CTAs to avoid double meanings, while retaining the family story, scripture, phone and email in `content/site.json` and the original text-based quote initiation. No unsupported licensing, service-area or load-capacity assertions were added.
+The puzzle-themed copy has intentionally been retained: “Moving. With purpose.”
+and “Putting the pieces together, from pickup to delivery.” The Story paragraph
+now refers to the puzzle pieces on the truck. No capacity, permit, insurance,
+service-area guarantee or fixed-price claims are implied.
 
-The approved site logo is now the client's selected bronze-and-forest-green Christian puzzle cross, bundled with the repo as `public/assets/uploads/psalm23-puzzle-cross.webp` and `public/assets/uploads/psalm23-puzzle-cross-original.png`. The existing gold and green illustration of a hauling vehicle remains illustrative only; it is not a verified likeness of a business vehicle. No source-site hotlink is used in the rendered page.
+## Check before publication
 
-## Checks before going live
+- [ ] The owner approves the artwork, description of the family, and list of services.
+- [ ] Confirm the business phone `281-766-1320` and email `Psalm23Transportation@yahoo.com`.
+- [ ] Confirm the exact routes, transport limitations, cargo conditions and fees directly with the owner.
+- [ ] Check mobile layout, contrast, alt text and links on the deployed website.
+- [ ] Confirm SMS opens a draft the visitor must send, and the email/copy fallbacks work.
+- [ ] Activate and test GitHub OAuth, Cloudflare Worker and approved editor permissions.
+- [ ] Confirm GitHub Pages Actions rebuild the public site after an authorized CMS publish.
 
-- [ ] Confirm the family story wording with the business owner.
-- [ ] Confirm that `281-766-1320` is the correct SMS and voice contact number.
-- [ ] Confirm that `Psalm23Transportation@yahoo.com` receives quote requests.
-- [ ] Obtain final approval for the bronze-and-green puzzle-cross branding; its image assets are already hosted locally.
-- [ ] Verify the exact destinations/routes, trailer specifications and regulatory status independently before adding any claims.
-- [ ] Verify contrast, keyboard focus, mobile navigation, and form validation on the deployed site.
-- [ ] Confirm quote form SMS behaviour on iOS and Android, and email fallback on desktop.
-- [ ] Confirm unapproved GitHub accounts cannot sign in.
-- [ ] Confirm draft, publish and GitHub workflow execution end to end.
-- [ ] Confirm correct domain/HTTPS after DNS propagation.
-
-## Local verification completed for the draft
-
-`npm run verify` exercises schema validation, HTML escaping, media URL restrictions, contact data consistency, CMS collection wiring, a valid Worker OAuth authorization redirect, signed cookie checks, and rejection of invalid state/unconfigured access. The local environment cannot certify the final GitHub/Cloudflare live configuration without the new repository and OAuth credentials.
+`npm run verify` tests local build and CMS structure, not live GitHub/Cloudflare authentication.

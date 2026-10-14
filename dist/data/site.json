@@ -7,7 +7,7 @@
     "email": "Psalm23Transportation@yahoo.com",
     "logo": "assets/uploads/psalm23-truck-logo.png",
     "logoAlt": "Psalm 23 Transportation logo: a bronze and forest-green heavy-duty flatbed truck in a puzzle pattern",
-    "tagline": "Faith-driven hauling. Dependable delivery.",
+    "tagline": "He leads. We haul.",
     "verseReference": "PSALM 23:1",
     "copyrightYear": "2026",
     "primaryColor": "#12312f",
@@ -19,55 +19,55 @@
     "quote": "Request a quote"
   },
   "hero": {
-    "eyebrow": "FLATBED HAULING. FAMILY-OWNED.",
-    "headline1": "Hauling.",
-    "headline2": "Done right.",
-    "intro": "Dependable flatbed transportation for equipment, materials, and cleanup jobs. Tell us what needs moving, where it is headed, and when you need it there, and we will help you plan the next step.",
+    "eyebrow": "FAMILY-OWNED. FAITH-GUIDED.",
+    "headline1": "Moving.",
+    "headline2": "With purpose.",
+    "intro": "Family-owned flatbed hauling for equipment, materials, and other items that need moving. Tell us what, where, and when; we’ll help you plan the next step.",
     "primaryButton": "Request a quote",
     "secondaryButton": "Call us",
-    "ribbon": "RELIABLE FLATBED TRANSPORT FOR LOCAL AND LONGER-DISTANCE JOBS.",
+    "ribbon": "PUTTING THE PIECES TOGETHER, FROM PICKUP TO DELIVERY.",
     "heroImage": "",
     "heroImageAlt": ""
   },
   "services": {
-    "eyebrow": "STRAIGHTFORWARD SERVICE. CLEAR COMMUNICATION.",
+    "eyebrow": "CLEAR PLANS. CAREFUL TRANSPORT.",
     "headline1": "From pickup.",
-    "headline2": "To destination.",
-    "intro": "We keep the process simple: share the job details, route, and timing, and we will confirm the best next step, availability, and pricing.",
+    "headline2": "To delivery.",
+    "intro": "Every job starts with the details. We’ll discuss what needs moving, the route, and your timeframe before confirming availability and pricing.",
     "cards": [
       {
         "number": "01",
         "title": "Equipment & materials",
-        "description": "Need tools, supplies, building materials, or other bulky items moved? Tell us the size, approximate weight, and pickup details so we can assess the job."
+        "description": "Need equipment, supplies, or bulky items transported? Share the dimensions, approximate weight, and pickup details so we can discuss the job."
       },
       {
         "number": "02",
-        "title": "Scrap, debris & property cleanup",
-        "description": "From scrap metal to cleanup runs, we can help transport items that need collecting and delivering to the right destination."
+        "title": "Scrap & cleanup transport",
+        "description": "Moving scrap metal or clearing materials from a property? Tell us what needs collecting and where it should be delivered."
       },
       {
         "number": "03",
-        "title": "Local & longer-distance hauling",
-        "description": "Whether the job is nearby or farther out, share the pickup point, destination, and preferred timing and we will let you know what is possible."
+        "title": "Local & longer-distance trips",
+        "description": "From nearby pickups to longer journeys, share the starting point, destination, and preferred date. We’ll confirm what’s possible."
       }
     ]
   },
   "story": {
     "eyebrow": "FAITH, FAMILY & SERVICE",
-    "headline1": "Grounded in faith.",
-    "headline2": "Ready to roll.",
-    "paragraph1": "Psalm 23 Transportation is a family-owned business founded by Isabella, her boyfriend, and her dad. Their Christian faith shapes the way they work: with honesty, care, and a commitment to serving people well.",
-    "paragraph2": "Our truck logo reflects the work we do every day: showing up prepared, communicating clearly, and carrying each job through from pickup to delivery. We aim to be dependable, respectful, and straightforward in every interaction.",
+    "headline1": "Built on faith.",
+    "headline2": "Driven by care.",
+    "paragraph1": "Psalm 23 Transportation is a family-owned business founded by Isabella, her boyfriend, and her dad. Their shared Christian faith is at the heart of what they are building together.",
+    "paragraph2": "Like the interlocking pieces on our truck, every successful journey depends on the details coming together. We aim to communicate clearly, treat people fairly, and approach every job with care.",
     "verse": "“The Lord is my shepherd; I shall not want.”",
     "verseCitation": "Psalm 23:1",
     "storyImage": "",
     "storyImageAlt": ""
   },
   "quote": {
-    "eyebrow": "LET’S PLAN YOUR HAUL",
+    "eyebrow": "LET’S PLAN YOUR TRANSPORT",
     "headline1": "Ready to",
     "headline2": "get moving?",
-    "intro": "Tell us what needs transporting, where it should be collected, and where it needs to go. We will review the details and get back to you about availability and a quote.",
+    "intro": "Tell us what needs transporting, where it should be collected, and where it’s going. We’ll review the details and get back to you about availability and a quote.",
     "smallNote": "Prefer a quick conversation? Call, text, or email us directly.",
     "nameLabel": "Your name",
     "namePlaceholder": "First and last name",
