@@ -1,0 +1,409 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "macv0223/psalm-23-trasnportation",
+    "branch": "main",
+    "base_url": "https://not-configured.invalid",
+    "auth_endpoint": "auth",
+    "squash_merges": true
+  },
+  "publish_mode": "editorial_workflow",
+  "media_folder": "public/assets/uploads",
+  "public_folder": "assets/uploads",
+  "site_url": "https://macv0223.github.io/psalm-23-trasnportation/",
+  "display_url": "https://macv0223.github.io/psalm-23-trasnportation/",
+  "logo_url": "../assets/favicon.png",
+  "show_preview_links": false,
+  "collections": [
+    {
+      "name": "site",
+      "label": "Edit website",
+      "description": "Edit every public section of Psalm 23 Transportation here.",
+      "files": [
+        {
+          "name": "site",
+          "label": "All website content",
+          "file": "content/site.json",
+          "fields": [
+            {
+              "name": "settings",
+              "label": "Branding & contact details",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "businessName",
+                  "label": "Business name",
+                  "widget": "string"
+                },
+                {
+                  "name": "brandTop",
+                  "label": "Logo wordmark: top line",
+                  "widget": "string"
+                },
+                {
+                  "name": "brandBottom",
+                  "label": "Logo wordmark: bottom line",
+                  "widget": "string"
+                },
+                {
+                  "name": "phone",
+                  "label": "Phone / text number",
+                  "widget": "string"
+                },
+                {
+                  "name": "email",
+                  "label": "Contact email",
+                  "widget": "string",
+                  "pattern": [
+                    "^[^\\s@<>]+@[^\\s@<>]+\\.[^\\s@<>]+$",
+                    "Enter a valid email address"
+                  ]
+                },
+                {
+                  "name": "logo",
+                  "label": "Primary jigsaw-pattern truck logo",
+                  "widget": "image",
+                  "required": false,
+                  "allow_multiple": false,
+                  "hint": "The bronze-and-green puzzle-pattern truck is installed. Upload a replacement only when approved by the business owner."
+                },
+                {
+                  "name": "logoAlt",
+                  "label": "Logo image description for accessibility",
+                  "widget": "text"
+                },
+                {
+                  "name": "tagline",
+                  "label": "Brand tagline",
+                  "widget": "string"
+                },
+                {
+                  "name": "verseReference",
+                  "label": "Scripture reference",
+                  "widget": "string"
+                },
+                {
+                  "name": "copyrightYear",
+                  "label": "Copyright year",
+                  "widget": "string"
+                },
+                {
+                  "name": "primaryColor",
+                  "label": "Dark green brand color",
+                  "widget": "string",
+                  "pattern": [
+                    "^#[0-9a-fA-F]{6}$",
+                    "Use a six-digit hex value, such as #12312f"
+                  ]
+                },
+                {
+                  "name": "accentColor",
+                  "label": "Gold brand color",
+                  "widget": "string",
+                  "pattern": [
+                    "^#[0-9a-fA-F]{6}$",
+                    "Use a six-digit hex value, such as #12312f"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "navigation",
+              "label": "Navigation links",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "services",
+                  "label": "Services link",
+                  "widget": "string"
+                },
+                {
+                  "name": "story",
+                  "label": "Story link",
+                  "widget": "string"
+                },
+                {
+                  "name": "quote",
+                  "label": "Quote link",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "hero",
+              "label": "Homepage hero",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Upper label",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline1",
+                  "label": "Headline first line",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline2",
+                  "label": "Headline second line",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introductory paragraph",
+                  "widget": "text"
+                },
+                {
+                  "name": "primaryButton",
+                  "label": "Quote button text",
+                  "widget": "string"
+                },
+                {
+                  "name": "secondaryButton",
+                  "label": "Phone button text",
+                  "widget": "string"
+                },
+                {
+                  "name": "ribbon",
+                  "label": "Ribbon text under hero",
+                  "widget": "string"
+                },
+                {
+                  "name": "heroImage",
+                  "label": "Optional truck / hero image",
+                  "widget": "image",
+                  "required": false,
+                  "allow_multiple": false
+                },
+                {
+                  "name": "heroImageAlt",
+                  "label": "Hero image description",
+                  "widget": "text",
+                  "required": false,
+                  "hint": "Required only when a custom image is added."
+                }
+              ]
+            },
+            {
+              "name": "services",
+              "label": "Hauling services",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Upper label",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline1",
+                  "label": "Headline first line",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline2",
+                  "label": "Headline second line",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introductory paragraph",
+                  "widget": "text"
+                },
+                {
+                  "name": "cards",
+                  "label": "Transportation services — add, edit, or reorder",
+                  "widget": "list",
+                  "min": 1,
+                  "max": 12,
+                  "summary": "{{fields.number}} · {{fields.title}}",
+                  "fields": [
+                    {
+                      "name": "number",
+                      "label": "Number (01, 02, 03, etc.)",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "title",
+                      "label": "Service title",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Service details",
+                      "widget": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "story",
+              "label": "Our story",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Upper label",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline1",
+                  "label": "Headline first line",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline2",
+                  "label": "Headline second line",
+                  "widget": "string"
+                },
+                {
+                  "name": "paragraph1",
+                  "label": "First paragraph",
+                  "widget": "text"
+                },
+                {
+                  "name": "paragraph2",
+                  "label": "Second paragraph",
+                  "widget": "text"
+                },
+                {
+                  "name": "verse",
+                  "label": "Bible verse / quotation",
+                  "widget": "text"
+                },
+                {
+                  "name": "verseCitation",
+                  "label": "Verse citation",
+                  "widget": "string"
+                },
+                {
+                  "name": "storyImage",
+                  "label": "Optional story photo",
+                  "widget": "image",
+                  "required": false,
+                  "allow_multiple": false
+                },
+                {
+                  "name": "storyImageAlt",
+                  "label": "Story image description",
+                  "widget": "text",
+                  "required": false,
+                  "hint": "Required only when a custom image is added."
+                }
+              ]
+            },
+            {
+              "name": "quote",
+              "label": "Quote request form",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Upper label",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline1",
+                  "label": "Headline first line",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline2",
+                  "label": "Headline second line",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introductory paragraph",
+                  "widget": "text"
+                },
+                {
+                  "name": "smallNote",
+                  "label": "Direct-text reminder",
+                  "widget": "text"
+                },
+                {
+                  "name": "nameLabel",
+                  "label": "Name label",
+                  "widget": "string"
+                },
+                {
+                  "name": "namePlaceholder",
+                  "label": "Name placeholder",
+                  "widget": "string"
+                },
+                {
+                  "name": "pickupLabel",
+                  "label": "Pickup label",
+                  "widget": "string"
+                },
+                {
+                  "name": "pickupPlaceholder",
+                  "label": "Pickup placeholder",
+                  "widget": "string"
+                },
+                {
+                  "name": "destinationLabel",
+                  "label": "Destination label",
+                  "widget": "string"
+                },
+                {
+                  "name": "destinationPlaceholder",
+                  "label": "Destination placeholder",
+                  "widget": "string"
+                },
+                {
+                  "name": "loadLabel",
+                  "label": "Items to transport label",
+                  "widget": "string"
+                },
+                {
+                  "name": "loadPlaceholder",
+                  "label": "Item description placeholder",
+                  "widget": "string"
+                },
+                {
+                  "name": "dateLabel",
+                  "label": "Timing label",
+                  "widget": "string"
+                },
+                {
+                  "name": "datePlaceholder",
+                  "label": "Timing placeholder",
+                  "widget": "string"
+                },
+                {
+                  "name": "submitButton",
+                  "label": "Text button label",
+                  "widget": "string"
+                },
+                {
+                  "name": "emailButton",
+                  "label": "Email button label",
+                  "widget": "string"
+                },
+                {
+                  "name": "copyButton",
+                  "label": "Copy button label",
+                  "widget": "string"
+                },
+                {
+                  "name": "disclaimer",
+                  "label": "Message submission explanation",
+                  "widget": "text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
