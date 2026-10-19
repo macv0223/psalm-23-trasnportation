@@ -73,3 +73,4 @@ This build uses the approved Psalm 23 website banner in the hero section and inc
 
 ### Hero image fix
 The homepage now references the existing text-free `psalm23-quote-section-bg.webp` for the hero (the previous text-bearing banner is not used). The headline remains editable and the rest of the layout is unchanged.
+
