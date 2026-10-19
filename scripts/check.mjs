@@ -9,6 +9,13 @@ const images=['psalm23-wordmark-gold.png','psalm23-quote-section-bg.webp','psalm
 for(const image of images)for(const prefix of ['public','dist','.'])file(`${prefix}/assets/uploads/${image}`);
 const html=readFileSync(full('dist/index.html'),'utf8');
 if(readFileSync(full('index.html'),'utf8')!==html)throw new Error('Published root index.html differs from build: stale homepage risk');
+// Regression: cached v1 green CSS must never be applied to new HTML.
+if(!html.includes('<style id="psalm23-critical-site-css">')||!html.includes('.value-card')||!html.includes('.service-grid{'))throw new Error('Homepage must contain matching inline black-and-gold CSS');
+if(!html.includes('name="psalm23-build" content="v4-inline-style-fix"'))throw new Error('Wrong release is being published');
+if(!html.includes('<script type="module" id="psalm23-matching-app-js">'))throw new Error('Homepage must contain matching inline JavaScript');
+if(html.includes('<link rel="stylesheet" href="assets/site.css">')||html.includes('<script type="module" src="assets/app.js"></script>'))throw new Error('Homepage still loads old cacheable CSS/JS');
+if(!html.includes('class="icon value-icon"')||!html.includes('.icon{width:22px;height:22px'))throw new Error('SVG sizing CSS missing; icons could render huge');
+
 for(const expected of ['HE LEADS.','WE HAUL.','BUILT ON FAITH.','From pickup.','To delivery.','PUTTING THE PIECES TOGETHER','id="quote-form"','class="value-strip"','class="steps-grid"','psalm23-wordmark-gold.png','psalm23-quote-section-bg.webp','psalm23-faith-emblem.webp','psalm23-story-section-bg.webp','psalm23-process-section-bg.webp','psalm23-quote-section-bg.webp'])if(!html.includes(expected))throw new Error(`Missing reference-layout content: ${expected}`);
 if(!html.includes('class="hero-backdrop" src="assets/uploads/psalm23-quote-section-bg.webp"'))throw new Error('Hero still uses a logo/text-bearing banner rather than the clean truck scene');
 if((html.match(/class="value-card"/g)||[]).length!==4)throw new Error('Reference layout needs four values');

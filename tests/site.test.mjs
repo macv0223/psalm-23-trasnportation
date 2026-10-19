@@ -66,3 +66,12 @@ test('Decap CMS edits the correct file including navigation, promises and images
   assert.equal(isConfigured({...setup,oauthOrigin:''}),false);
 });
 test('phone number is safe for tel and sms links',()=>assert.equal(phoneDigits('(281) 766-1320'),'2817661320'));
+
+test('generated homepage includes self-contained CSS and JS to prevent stale-cache layout failures',()=>{
+  const page=readFileSync(new URL('../scripts/build.mjs',import.meta.url),'utf8');
+  assert.match(page,/psalm23-critical-site-css/);
+  assert.match(page,/page\.replace\(styleLink/);
+  assert.match(page,/psalm23-matching-app-js/);
+  assert.match(page,/readFileSync\(path\.join\(root,'public','assets','site\.css'\)/);
+  assert.match(page,/readFileSync\(path\.join\(root,'public','assets','app\.js'\)/);
+});

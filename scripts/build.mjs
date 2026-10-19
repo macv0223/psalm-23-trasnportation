@@ -22,7 +22,21 @@ function build(){
   const dist=path.join(root,'dist');
   rmSync(dist,{recursive:true,force:true});copyRecursive(path.join(root,'public'),dist);
   const admin=path.join(dist,'admin');mkdirSync(admin,{recursive:true});
-  writeFileSync(path.join(dist,'index.html'),renderDocument(data),'utf8');
+  // Build a self-contained homepage: keep the exact matching stylesheet and
+  // UI behaviour with the HTML itself. Old GitHub Pages/browser-cached
+  // assets/site.css files previously caused catastrophic style mismatch:
+  // unbounded SVGs, pale backgrounds and broken navigation.
+  const css=readFileSync(path.join(root,'public','assets','site.css'),'utf8');
+  const js=readFileSync(path.join(root,'public','assets','app.js'),'utf8');
+  let page=renderDocument(data);
+  const styleLink='<link rel="stylesheet" href="assets/site.css">';
+  const scriptLink='<script type="module" src="assets/app.js"></script>';
+  if(!page.includes(styleLink)||!page.includes(scriptLink))throw new Error('Page assets cannot be embedded; HTML template changed');
+  if(css.includes('</style')||js.includes('</script'))throw new Error('Unsafe closing tag in application assets');
+  page=page.replace(styleLink,`<style id="psalm23-critical-site-css">\n${css}\n</style>`);
+  page=page.replace(scriptLink,`<script type="module" id="psalm23-matching-app-js">\n${js}\n</script>`);
+  page=page.replace('</head>','<meta name="psalm23-build" content="v4-inline-style-fix"></head>');
+  writeFileSync(path.join(dist,'index.html'),page,'utf8');
   writeFileSync(path.join(admin,'config.json'),JSON.stringify(cmsConfig(setup),null,2));
   writeFileSync(path.join(admin,'setup-status.json'),JSON.stringify({configured:isConfigured(setup),repository:setup.repository,editorAuthConfigured:Boolean(setup.oauthOrigin)},null,2));
   // JSON content is only exposed in the built website for preview; no secrets are included.
