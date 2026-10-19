@@ -26,7 +26,7 @@ try{
             const snapshot=structuredClone(siteData);
             for(const key of Object.keys(snapshot)){if(draft[key]&&typeof draft[key]==='object'){snapshot[key]={...snapshot[key],...draft[key]};}}
             // Resolve temporary uploaded images for previews without modifying saved content.
-            for(const [section,key] of [['settings','logo'],['hero','heroImage'],['story','storyImage']]){
+            for(const [section,key] of [['settings','logo'],['settings','featureGraphic'],['settings','showcaseGraphic'],['hero','heroImage'],['story','storyImage']]){
               if(snapshot[section]?.[key]){
                 const asset=this.props.getAsset(snapshot[section][key]);
                 if(asset&&typeof asset.toString==='function')snapshot[section][key]=asset.toString();

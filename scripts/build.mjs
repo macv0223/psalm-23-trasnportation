@@ -29,9 +29,11 @@ function build(){
   mkdirSync(path.join(dist,'data'),{recursive:true});
   writeFileSync(path.join(dist,'data','site.json'),JSON.stringify(data,null,2));
   writeFileSync(path.join(dist,'robots.txt'),'User-agent: *\nAllow: /\n');
-  // Mirror the generated public site to repository root for branch-based GitHub Pages.
-  // Without this step the root index.html can silently publish outdated imagery.
+  // Root-level files support GitHub Pages "Deploy from a branch / main / (root)".
+  // Remove old output before copying to prevent stale artwork from surviving rebuilds.
+  for(const folder of ['assets','admin','data'])rmSync(path.join(root,folder),{recursive:true,force:true});
   copyRecursive(dist,root);
+  writeFileSync(path.join(root,'.nojekyll'),'','utf8');
   console.log(`Built ${dist}. Editor access: ${isConfigured(setup)?'ready for deployed OAuth Worker':'requires GitHub/Cloudflare setup'}.`);
 }
 build();

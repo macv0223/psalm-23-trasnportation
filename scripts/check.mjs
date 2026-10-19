@@ -2,31 +2,21 @@ import {readFileSync,existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const requireFile=p=>{if(!existsSync(path.join(root,p)))throw new Error(`Missing ${p}`)};
-for(const p of ['dist/index.html','dist/admin/index.html','dist/admin/config.json','dist/admin/setup-status.json','dist/assets/app.js','dist/assets/site.css','dist/data/site.json','dist/assets/uploads/psalm23-truck-logo.png','dist/assets/favicon.png'])requireFile(p);
-const page=readFileSync(path.join(root,'dist/index.html'),'utf8');
-for(const phrase of ['Psalm 23 Transportation','Moving.','With purpose.','281-766-1320','Psalm23Transportation@yahoo.com','What needs transporting?','id="quote-form"','assets/app.js'])if(!page.includes(phrase))throw new Error(`Missing expected page content: ${phrase}`);
-const config=JSON.parse(readFileSync(path.join(root,'dist/admin/config.json'),'utf8'));
-if(config.backend.name!=='github'||config.publish_mode!=='editorial_workflow')throw new Error('CMS not configured as GitHub editorial workflow');
-if(config.collections[0].files[0].file!=='content/site.json')throw new Error('CMS is not bound to the editable JSON');
-const settings=JSON.parse(readFileSync(path.join(root,'dist/admin/setup-status.json'),'utf8'));
-if(settings.configured&&!settings.repository)throw new Error('CMS ready without repository');
-console.log('Build checks passed.');
-
-// Prevent the cross-logo regression: the published root must match the build.
-const rootPage=readFileSync(path.join(root,'index.html'),'utf8');
-if(rootPage!==page)throw new Error('Root index.html is stale; build must sync it to dist/index.html');
-for(const marker of ['hauling-scene.svg','story-cross-image','brand-cross']){
- if(page.includes(marker))throw new Error('Obsolete artwork reference is still present: '+marker);
-}
-if(!page.includes('psalm23-truck-logo.png')||!page.includes('hero-road'))throw new Error('Truck logo or road is missing');
-if(!page.includes('psalm23-puzzle-cross.webp'))throw new Error('Faith-section cross artwork is missing');
-if(!page.includes('PUTTING THE PIECES TOGETHER'))throw new Error('Restored puzzle-themed copy is missing');
-const checkedCms=JSON.parse(readFileSync(path.join(root,'dist/admin/config.json'),'utf8'));
-if(checkedCms.backend.repo!=='macv0223/psalm-23-trasnportation')throw new Error('CMS points to the wrong repository');
-const uploadedLogo=path.join(root,'dist/assets/uploads/psalm23-truck-logo.png');
-if(!existsSync(uploadedLogo))throw new Error('Truck asset is missing');
-
-for(const pathpart of ['assets/uploads/psalm23-puzzle-cross.webp','public/assets/uploads/psalm23-puzzle-cross.webp','dist/assets/uploads/psalm23-puzzle-cross.webp']){
- if(!existsSync(path.join(root,pathpart)))throw new Error('Story cross image is missing: '+pathpart);
-}
+const full=p=>path.join(root,p);
+const file=p=>{if(!existsSync(full(p)))throw new Error(`Missing required file: ${p}`)};
+for(const p of ['index.html','dist/index.html','assets/site.css','dist/assets/site.css','assets/app.js','dist/assets/app.js','admin/index.html','dist/admin/index.html','dist/admin/config.json','dist/data/site.json','dist/assets/favicon.png','.github/workflows/pages.yml'])file(p);
+const images=['psalm23-wordmark-gold.png','psalm23-quote-section-bg.webp','psalm23-story-section-bg.webp','psalm23-process-section-bg.webp','psalm23-quote-section-bg.webp','psalm23-faith-emblem.webp','psalm23-truck-graphic.webp','psalm23-hauling-graphic.webp'];
+for(const image of images)for(const prefix of ['public','dist','.'])file(`${prefix}/assets/uploads/${image}`);
+const html=readFileSync(full('dist/index.html'),'utf8');
+if(readFileSync(full('index.html'),'utf8')!==html)throw new Error('Published root index.html differs from build: stale homepage risk');
+for(const expected of ['HE LEADS.','WE HAUL.','BUILT ON FAITH.','From pickup.','To delivery.','PUTTING THE PIECES TOGETHER','id="quote-form"','class="value-strip"','class="steps-grid"','psalm23-wordmark-gold.png','psalm23-quote-section-bg.webp','psalm23-faith-emblem.webp','psalm23-story-section-bg.webp','psalm23-process-section-bg.webp','psalm23-quote-section-bg.webp'])if(!html.includes(expected))throw new Error(`Missing reference-layout content: ${expected}`);
+if(!html.includes('class="hero-backdrop" src="assets/uploads/psalm23-quote-section-bg.webp"'))throw new Error('Hero still uses a logo/text-bearing banner rather than the clean truck scene');
+if((html.match(/class="value-card"/g)||[]).length!==4)throw new Error('Reference layout needs four values');
+if((html.match(/class="service-card"/g)||[]).length!==3)throw new Error('Reference layout needs three service cards');
+if((html.match(/class="step-card"/g)||[]).length!==3)throw new Error('Reference layout needs three process cards');
+const cfg=JSON.parse(readFileSync(full('dist/admin/config.json'),'utf8'));
+if(cfg.backend.repo!=='macv0223/psalm-23-trasnportation'||cfg.publish_mode!=='editorial_workflow')throw new Error('Wrong CMS repository or editorial workflow');
+if(cfg.collections[0].files[0].file!=='content/site.json')throw new Error('CMS must point to source JSON');
+const data=JSON.parse(readFileSync(full('dist/data/site.json'),'utf8'));
+if(data.settings.phone!=='281-766-1320'||data.settings.email!=='Psalm23Transportation@yahoo.com')throw new Error('Client contact details changed unexpectedly');
+console.log('Reference layout, updated artwork, contacts, CMS, and root deployment files verified.');

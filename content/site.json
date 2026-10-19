@@ -5,70 +5,109 @@
     "brandBottom": "TRANSPORTATION",
     "phone": "281-766-1320",
     "email": "Psalm23Transportation@yahoo.com",
-    "logo": "assets/uploads/psalm23-truck-logo.png",
-    "logoAlt": "Psalm 23 Transportation logo: a bronze and forest-green heavy-duty flatbed truck in a puzzle pattern",
+    "logo": "assets/uploads/psalm23-wordmark-gold.png",
+    "logoAlt": "Psalm 23 Transportation gold wordmark with mountains, Christian cross, winding road and puzzle heart",
+    "featureGraphic": "assets/uploads/psalm23-truck-graphic.webp",
+    "featureGraphicAlt": "Psalm 23 Transportation graphic: a white pickup and flatbed trailer beneath gold mountain peaks, with the business name and faith-based motto",
+    "showcaseGraphic": "assets/uploads/psalm23-hauling-graphic.webp",
+    "showcaseGraphicAlt": "White pickup with extended flatbed trailer under a gold mountain range and cross, with Psalm 23 Transportation in gold lettering",
     "tagline": "He leads. We haul.",
-    "verseReference": "PSALM 23:1",
+    "verseReference": "Psalm 23:1",
     "copyrightYear": "2026",
-    "primaryColor": "#12312f",
-    "accentColor": "#db9d46"
+    "primaryColor": "#090909",
+    "accentColor": "#E9B658"
   },
   "navigation": {
-    "services": "What we transport",
-    "story": "Our story",
-    "quote": "Request a quote"
+    "home": "Home",
+    "services": "What We Transport",
+    "story": "Our Story",
+    "process": "How It Works",
+    "contact": "Contact",
+    "quote": "Request a Quote"
   },
   "hero": {
-    "eyebrow": "FAMILY-OWNED. FAITH-GUIDED.",
-    "headline1": "Moving.",
-    "headline2": "With purpose.",
-    "intro": "Family-owned flatbed hauling for equipment, materials, and other items that need moving. Tell us what, where, and when; we\u2019ll help you plan the next step.",
-    "primaryButton": "Request a quote",
-    "secondaryButton": "Call us",
+    "eyebrow": "FAITH DRIVES EVERYTHING WE DO",
+    "headline1": "HE LEADS.",
+    "headline2": "WE HAUL.",
+    "intro": "Psalm 23 Transportation offers family-owned flatbed hauling for equipment, materials, and other items. Guided by faith and focused on honest communication, we help you plan the journey from pickup to delivery.",
+    "primaryButton": "Request a Quote",
+    "secondaryButton": "Call Us",
     "ribbon": "PUTTING THE PIECES TOGETHER, FROM PICKUP TO DELIVERY.",
-    "heroImage": "",
-    "heroImageAlt": ""
+    "heroImage": "assets/uploads/psalm23-quote-section-bg.webp",
+    "heroImageAlt": "White flatbed hauling truck beneath a glowing Christian cross and mountain sunset, with open dark space to the left for the website headline"
   },
   "services": {
-    "eyebrow": "CLEAR PLANS. CAREFUL TRANSPORT.",
-    "headline1": "From pickup.",
-    "headline2": "To delivery.",
-    "intro": "Every job starts with the details. We\u2019ll discuss what needs moving, the route, and your timeframe before confirming availability and pricing.",
+    "eyebrow": "OUR SERVICES",
+    "headline1": "Professional hauling",
+    "headline2": "solutions",
+    "intro": "STRAIGHTFORWARD PLANNING. CAREFUL TRANSPORT. FAITH-DRIVEN SERVICE.",
     "cards": [
       {
         "number": "01",
-        "title": "Equipment & materials",
-        "description": "Need equipment, supplies, or bulky items transported? Share the dimensions, approximate weight, and pickup details so we can discuss the job."
+        "title": "Flatbed hauling",
+        "description": "Transportation for equipment, supplies, and materials. Share the dimensions and route so we can discuss your request."
       },
       {
         "number": "02",
-        "title": "Scrap & cleanup transport",
-        "description": "Moving scrap metal or clearing materials from a property? Tell us what needs collecting and where it should be delivered."
+        "title": "Equipment transport",
+        "description": "Need machinery or bulky items moved? Tell us the size, approximate weight, and pickup details."
       },
       {
         "number": "03",
-        "title": "Local & longer-distance trips",
-        "description": "From nearby pickups to longer journeys, share the starting point, destination, and preferred date. We\u2019ll confirm what\u2019s possible."
+        "title": "Long-distance hauling",
+        "description": "From local pickups to longer routes, contact us with the destination and your preferred timing."
       }
     ]
   },
+  "process": {
+    "eyebrow": "A CLEARER WAY TO HAUL",
+    "headline1": "From pickup.",
+    "headline2": "To delivery.",
+    "intro": "Every job starts with the details. We’ll discuss what needs moving, the route, and your timeframe before confirming availability and pricing.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Tell us what you need",
+        "description": "Share the items, dimensions, approximate weight, and pickup details."
+      },
+      {
+        "number": "02",
+        "title": "We plan the route",
+        "description": "We’ll discuss the journey, preferred date, and a quote for your transport."
+      },
+      {
+        "number": "03",
+        "title": "We arrange transport",
+        "description": "Once details are agreed, we’ll confirm the next steps for pickup and delivery."
+      }
+    ],
+    "backgroundImage": "assets/uploads/psalm23-process-section-bg.webp"
+  },
   "story": {
-    "eyebrow": "FAITH, FAMILY & SERVICE",
-    "headline1": "Built on faith.",
-    "headline2": "Driven by care.",
+    "eyebrow": "FAITH. FAMILY. A HIGHER PURPOSE.",
+    "headline1": "BUILT ON FAITH.",
+    "headline2": "DRIVEN BY CARE.",
     "paragraph1": "Psalm 23 Transportation is a family-owned business founded by Isabella, her boyfriend, and her dad. Their shared Christian faith is at the heart of what they are building together.",
-    "paragraph2": "Like the interlocking pieces on our truck, every successful journey depends on the details coming together. We aim to communicate clearly, treat people fairly, and approach every job with care.",
-    "verse": "\u201cThe Lord is my shepherd; I shall not want.\u201d",
+    "paragraph2": "Like pieces in a puzzle, a successful journey depends on the details coming together. We aim to communicate clearly, treat people fairly, and approach each transportation request with care.",
+    "verse": "“The Lord is my shepherd; I shall not want.”",
     "verseCitation": "Psalm 23:1",
-    "storyImage": "assets/uploads/psalm23-puzzle-cross.webp",
-    "storyImageAlt": "Psalm 23 Transportation puzzle-pattern cross in bronze and green"
+    "storyImage": "assets/uploads/psalm23-faith-emblem.webp",
+    "storyImageAlt": "Circular gold Christian emblem with mountains, winding road and multicoloured puzzle-heart",
+    "backgroundImage": "assets/uploads/psalm23-story-section-bg.webp"
+  },
+  "showcase": {
+    "eyebrow": "THE ROAD AHEAD",
+    "headline1": "Your next move.",
+    "headline2": "Let’s talk.",
+    "intro": "From the first conversation to the final destination, our focus is on honest communication, practical planning and treating people with respect.",
+    "button": "Start a quote request"
   },
   "quote": {
-    "eyebrow": "LET\u2019S PLAN YOUR TRANSPORT",
+    "eyebrow": "LET’S GET MOVING",
     "headline1": "Ready to",
-    "headline2": "get moving?",
-    "intro": "Tell us what needs transporting, where it should be collected, and where it\u2019s going. We\u2019ll review the details and get back to you about availability and a quote.",
-    "smallNote": "Prefer a quick conversation? Call, text, or email us directly.",
+    "headline2": "get a quote?",
+    "intro": "Tell us what needs transporting, where it should be collected, and where it’s going. We’ll review the details and get back to you about availability and a quote.",
+    "smallNote": "Prefer a conversation? Call, text or email us directly.",
     "nameLabel": "Your name",
     "namePlaceholder": "First and last name",
     "pickupLabel": "Pickup location",
@@ -76,12 +115,31 @@
     "destinationLabel": "Delivery location",
     "destinationPlaceholder": "City and state",
     "loadLabel": "What needs transporting?",
-    "loadPlaceholder": "Describe the items, estimated size or weight, and any special details",
+    "loadPlaceholder": "Describe the items, approximate size or weight, and any special details",
     "dateLabel": "When do you need it moved? (optional)",
     "datePlaceholder": "Preferred date or timeframe",
-    "submitButton": "Text my quote request",
-    "emailButton": "Email instead",
+    "submitButton": "Start your quote request",
+    "emailButton": "Prepare email",
     "copyButton": "Copy request",
-    "disclaimer": "Opens a message in your texting app. Please review and send it yourself; your request is not sent automatically."
-  }
+    "disclaimer": "This creates a draft message in your messaging app. Please review and send it yourself. The form does not submit your request automatically.",
+    "backgroundImage": "assets/uploads/psalm23-quote-section-bg.webp"
+  },
+  "values": [
+    {
+      "icon": "shield",
+      "title": "Reliable transportation"
+    },
+    {
+      "icon": "cross",
+      "title": "Faith-driven service"
+    },
+    {
+      "icon": "users",
+      "title": "Family-owned & operated"
+    },
+    {
+      "icon": "heart",
+      "title": "Supporting the autism community"
+    }
+  ]
 }

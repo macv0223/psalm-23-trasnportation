@@ -17,17 +17,17 @@
   "collections": [
     {
       "name": "site",
-      "label": "Edit website",
-      "description": "Edit every public section of Psalm 23 Transportation here.",
+      "label": "Website content",
+      "description": "All words, services, imagery and contact information in one place.",
       "files": [
         {
           "name": "site",
-          "label": "All website content",
+          "label": "Psalm 23 website",
           "file": "content/site.json",
           "fields": [
             {
               "name": "settings",
-              "label": "Branding & contact details",
+              "label": "Business details & visual branding",
               "widget": "object",
               "collapsed": false,
               "fields": [
@@ -38,17 +38,17 @@
                 },
                 {
                   "name": "brandTop",
-                  "label": "Logo wordmark: top line",
+                  "label": "Brand name (first line)",
                   "widget": "string"
                 },
                 {
                   "name": "brandBottom",
-                  "label": "Logo wordmark: bottom line",
+                  "label": "Brand name (second line)",
                   "widget": "string"
                 },
                 {
                   "name": "phone",
-                  "label": "Phone / text number",
+                  "label": "Call / text telephone number",
                   "widget": "string"
                 },
                 {
@@ -62,20 +62,46 @@
                 },
                 {
                   "name": "logo",
-                  "label": "Primary jigsaw-pattern truck logo",
+                  "label": "Primary gold wordmark / header logo",
                   "widget": "image",
-                  "required": false,
                   "allow_multiple": false,
-                  "hint": "The bronze-and-green puzzle-pattern truck is installed. Upload a replacement only when approved by the business owner."
+                  "required": false,
+                  "hint": "Approved transparent PNG wordmark; displays on black without a coloured rectangle."
                 },
                 {
                   "name": "logoAlt",
-                  "label": "Logo image description for accessibility",
+                  "label": "Logo description",
+                  "widget": "text"
+                },
+                {
+                  "name": "featureGraphic",
+                  "label": "Supplementary truck graphic (stored, not displayed)",
+                  "widget": "image",
+                  "allow_multiple": false,
+                  "required": false,
+                  "hint": "Client-supplied truck & mountains Graphic 1."
+                },
+                {
+                  "name": "featureGraphicAlt",
+                  "label": "How-it-works image description",
+                  "widget": "text"
+                },
+                {
+                  "name": "showcaseGraphic",
+                  "label": "Supplementary hauling graphic (stored, not displayed)",
+                  "widget": "image",
+                  "allow_multiple": false,
+                  "required": false,
+                  "hint": "Client-supplied truck with mountains & cross Graphic 2."
+                },
+                {
+                  "name": "showcaseGraphicAlt",
+                  "label": "Road-ahead image description",
                   "widget": "text"
                 },
                 {
                   "name": "tagline",
-                  "label": "Brand tagline",
+                  "label": "Motto",
                   "widget": "string"
                 },
                 {
@@ -90,50 +116,65 @@
                 },
                 {
                   "name": "primaryColor",
-                  "label": "Dark green brand color",
+                  "label": "Main background (near black)",
                   "widget": "string",
                   "pattern": [
                     "^#[0-9a-fA-F]{6}$",
-                    "Use a six-digit hex value, such as #12312f"
+                    "Use a six-digit hex colour, for example #E9B658"
                   ]
                 },
                 {
                   "name": "accentColor",
-                  "label": "Gold brand color",
+                  "label": "Gold accent colour",
                   "widget": "string",
                   "pattern": [
                     "^#[0-9a-fA-F]{6}$",
-                    "Use a six-digit hex value, such as #12312f"
+                    "Use a six-digit hex colour, for example #E9B658"
                   ]
                 }
               ]
             },
             {
               "name": "navigation",
-              "label": "Navigation links",
+              "label": "Navigation labels",
               "widget": "object",
               "collapsed": false,
               "fields": [
                 {
+                  "name": "home",
+                  "label": "Home",
+                  "widget": "string"
+                },
+                {
                   "name": "services",
-                  "label": "Services link",
+                  "label": "What We Transport",
                   "widget": "string"
                 },
                 {
                   "name": "story",
-                  "label": "Story link",
+                  "label": "Our Story",
+                  "widget": "string"
+                },
+                {
+                  "name": "process",
+                  "label": "How It Works",
+                  "widget": "string"
+                },
+                {
+                  "name": "contact",
+                  "label": "Contact",
                   "widget": "string"
                 },
                 {
                   "name": "quote",
-                  "label": "Quote link",
+                  "label": "Request a Quote",
                   "widget": "string"
                 }
               ]
             },
             {
               "name": "hero",
-              "label": "Homepage hero",
+              "label": "Hero banner & introduction",
               "widget": "object",
               "collapsed": false,
               "fields": [
@@ -144,97 +185,183 @@
                 },
                 {
                   "name": "headline1",
-                  "label": "Headline first line",
+                  "label": "Headline line 1",
                   "widget": "string"
                 },
                 {
                   "name": "headline2",
-                  "label": "Headline second line",
+                  "label": "Headline line 2",
                   "widget": "string"
                 },
                 {
                   "name": "intro",
-                  "label": "Introductory paragraph",
+                  "label": "Main introduction",
                   "widget": "text"
                 },
                 {
                   "name": "primaryButton",
-                  "label": "Quote button text",
+                  "label": "Quote button",
                   "widget": "string"
                 },
                 {
                   "name": "secondaryButton",
-                  "label": "Phone button text",
+                  "label": "Call button",
                   "widget": "string"
                 },
                 {
                   "name": "ribbon",
-                  "label": "Ribbon text under hero",
+                  "label": "Puzzle / promise slogan",
                   "widget": "string"
                 },
                 {
                   "name": "heroImage",
-                  "label": "Optional truck / hero image",
+                  "label": "Full-width banner",
                   "widget": "image",
+                  "allow_multiple": false,
                   "required": false,
-                  "allow_multiple": false
+                  "hint": "Default: existing clean, text-free truck-and-cross scene (psalm23-quote-section-bg.webp) with space for the editable heading. Avoid uploading banners that contain lettering."
                 },
                 {
                   "name": "heroImageAlt",
-                  "label": "Hero image description",
-                  "widget": "text",
-                  "required": false,
-                  "hint": "Required only when a custom image is added."
+                  "label": "Banner image description",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "values",
+              "label": "Four business commitments (the icon strip)",
+              "widget": "list",
+              "min": 4,
+              "max": 4,
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "icon",
+                  "label": "Icon",
+                  "widget": "select",
+                  "options": [
+                    "shield",
+                    "cross",
+                    "users",
+                    "heart"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Value / promise",
+                  "widget": "string"
                 }
               ]
             },
             {
               "name": "services",
-              "label": "Hauling services",
+              "label": "Transportation services",
               "widget": "object",
               "collapsed": false,
               "fields": [
                 {
                   "name": "eyebrow",
-                  "label": "Upper label",
+                  "label": "Section label",
                   "widget": "string"
                 },
                 {
                   "name": "headline1",
-                  "label": "Headline first line",
+                  "label": "Headline line 1",
                   "widget": "string"
                 },
                 {
                   "name": "headline2",
-                  "label": "Headline second line",
+                  "label": "Headline line 2",
                   "widget": "string"
                 },
                 {
                   "name": "intro",
-                  "label": "Introductory paragraph",
+                  "label": "Section introduction",
                   "widget": "text"
                 },
                 {
                   "name": "cards",
-                  "label": "Transportation services — add, edit, or reorder",
+                  "label": "Service cards (add, edit or reorder)",
                   "widget": "list",
                   "min": 1,
                   "max": 12,
-                  "summary": "{{fields.number}} · {{fields.title}}",
+                  "summary": "{{fields.title}}",
                   "fields": [
                     {
                       "name": "number",
-                      "label": "Number (01, 02, 03, etc.)",
+                      "label": "Display number",
                       "widget": "string"
                     },
                     {
                       "name": "title",
-                      "label": "Service title",
+                      "label": "Heading",
                       "widget": "string"
                     },
                     {
                       "name": "description",
-                      "label": "Service details",
+                      "label": "Description",
+                      "widget": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "process",
+              "label": "How it works",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Section label",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline1",
+                  "label": "Headline line 1",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline2",
+                  "label": "Headline line 2",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Section introduction",
+                  "widget": "text"
+                },
+                {
+                  "name": "backgroundImage",
+                  "label": "How it works background image",
+                  "widget": "image",
+                  "allow_multiple": false,
+                  "required": false,
+                  "hint": "Wide atmospheric background behind the process cards."
+                },
+                {
+                  "name": "steps",
+                  "label": "Steps (three)",
+                  "widget": "list",
+                  "min": 3,
+                  "max": 3,
+                  "summary": "{{fields.title}}",
+                  "fields": [
+                    {
+                      "name": "number",
+                      "label": "Display number",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "title",
+                      "label": "Heading",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
                       "widget": "text"
                     }
                   ]
@@ -243,91 +370,139 @@
             },
             {
               "name": "story",
-              "label": "Our story",
+              "label": "Christian values & family story",
               "widget": "object",
               "collapsed": false,
               "fields": [
                 {
                   "name": "eyebrow",
-                  "label": "Upper label",
+                  "label": "Section label",
                   "widget": "string"
                 },
                 {
                   "name": "headline1",
-                  "label": "Headline first line",
+                  "label": "Headline line 1",
                   "widget": "string"
                 },
                 {
                   "name": "headline2",
-                  "label": "Headline second line",
+                  "label": "Headline line 2",
                   "widget": "string"
                 },
                 {
                   "name": "paragraph1",
-                  "label": "First paragraph",
+                  "label": "Family story",
                   "widget": "text"
                 },
                 {
                   "name": "paragraph2",
-                  "label": "Second paragraph",
+                  "label": "Brand values / puzzle theme",
                   "widget": "text"
                 },
                 {
                   "name": "verse",
-                  "label": "Bible verse / quotation",
+                  "label": "Scripture quotation",
                   "widget": "text"
                 },
                 {
                   "name": "verseCitation",
-                  "label": "Verse citation",
+                  "label": "Scripture citation",
                   "widget": "string"
                 },
                 {
                   "name": "storyImage",
-                  "label": "Optional story photo",
+                  "label": "Christian emblem (Logo 2)",
                   "widget": "image",
+                  "allow_multiple": false,
                   "required": false,
-                  "allow_multiple": false
+                  "hint": "Client-supplied circular emblem with the Christian cross, mountains, road and puzzle heart."
                 },
                 {
                   "name": "storyImageAlt",
-                  "label": "Story image description",
-                  "widget": "text",
+                  "label": "Emblem description",
+                  "widget": "text"
+                },
+                {
+                  "name": "backgroundImage",
+                  "label": "Built on faith background image",
+                  "widget": "image",
+                  "allow_multiple": false,
                   "required": false,
-                  "hint": "Required only when a custom image is added."
+                  "hint": "Wide supporting background behind the story section."
+                }
+              ]
+            },
+            {
+              "name": "showcase",
+              "label": "Road ahead graphic & message",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Section label",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline1",
+                  "label": "Headline line 1",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline2",
+                  "label": "Headline line 2",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Section description",
+                  "widget": "text"
+                },
+                {
+                  "name": "button",
+                  "label": "Link to quote form",
+                  "widget": "string"
                 }
               ]
             },
             {
               "name": "quote",
-              "label": "Quote request form",
+              "label": "Request a quote form",
               "widget": "object",
               "collapsed": false,
               "fields": [
                 {
                   "name": "eyebrow",
-                  "label": "Upper label",
+                  "label": "Section label",
                   "widget": "string"
                 },
                 {
                   "name": "headline1",
-                  "label": "Headline first line",
+                  "label": "Headline line 1",
                   "widget": "string"
                 },
                 {
                   "name": "headline2",
-                  "label": "Headline second line",
+                  "label": "Headline line 2",
                   "widget": "string"
                 },
                 {
                   "name": "intro",
-                  "label": "Introductory paragraph",
+                  "label": "Section introduction",
                   "widget": "text"
                 },
                 {
                   "name": "smallNote",
-                  "label": "Direct-text reminder",
+                  "label": "Phone/text/email reminder",
                   "widget": "text"
+                },
+                {
+                  "name": "backgroundImage",
+                  "label": "Contact section background image",
+                  "widget": "image",
+                  "allow_multiple": false,
+                  "required": false,
+                  "hint": "Wide atmospheric background behind the quote/contact section."
                 },
                 {
                   "name": "nameLabel",
@@ -351,22 +526,22 @@
                 },
                 {
                   "name": "destinationLabel",
-                  "label": "Destination label",
+                  "label": "Delivery label",
                   "widget": "string"
                 },
                 {
                   "name": "destinationPlaceholder",
-                  "label": "Destination placeholder",
+                  "label": "Delivery placeholder",
                   "widget": "string"
                 },
                 {
                   "name": "loadLabel",
-                  "label": "Items to transport label",
+                  "label": "Items label",
                   "widget": "string"
                 },
                 {
                   "name": "loadPlaceholder",
-                  "label": "Item description placeholder",
+                  "label": "Items placeholder",
                   "widget": "string"
                 },
                 {
@@ -381,22 +556,22 @@
                 },
                 {
                   "name": "submitButton",
-                  "label": "Text button label",
+                  "label": "Text action label",
                   "widget": "string"
                 },
                 {
                   "name": "emailButton",
-                  "label": "Email button label",
+                  "label": "Email action label",
                   "widget": "string"
                 },
                 {
                   "name": "copyButton",
-                  "label": "Copy button label",
+                  "label": "Copy action label",
                   "widget": "string"
                 },
                 {
                   "name": "disclaimer",
-                  "label": "Message submission explanation",
+                  "label": "Text/email behaviour note",
                   "widget": "text"
                 }
               ]
