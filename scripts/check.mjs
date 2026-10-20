@@ -29,7 +29,15 @@ if(cfg.collections[0].files[0].file!=='content/site.json')throw new Error('CMS m
 const data=JSON.parse(readFileSync(full('dist/data/site.json'),'utf8'));
 if(data.settings.phone!=='281-766-1320'||data.settings.email!=='Psalm23Transportation@yahoo.com')throw new Error('Client contact details changed unexpectedly');
 for(const fileName of ['cms/quotes/worker.mjs','cms/quotes/wrangler.toml','docs/ONLINE-QUOTE-NOTIFICATIONS.md'])file(fileName);
-if(!html.includes('name="customerEmail"')||!html.includes('name="customerPhone"')||!html.includes('data-enabled="false"'))throw new Error('Secure contact fields and safe setup state are missing');
+// The quote form must be disabled until configured, but enabled after the
+// production endpoint and public Turnstile site key are added to site.json.
+// An earlier release incorrectly insisted it was always disabled, preventing
+// a live site from deploying after its legitimate configuration was saved.
+const configuredQuoteForm = Boolean(data.settings.quoteApiEndpoint && data.settings.turnstileSiteKey);
+const expectedEnabled = configuredQuoteForm ? 'true' : 'false';
+if(!html.includes('name="customerEmail"')||!html.includes('name="customerPhone"')||!html.includes(`data-enabled="${expectedEnabled}"`))throw new Error(`Secure quote form is missing or in the wrong state (expected enabled=${expectedEnabled})`);
+if(configuredQuoteForm && (!html.includes('class="cf-turnstile"')||!html.includes('data-action="quote_request"')||!html.includes('https://challenges.cloudflare.com/turnstile/v0/api.js')||!html.includes(`data-endpoint="${data.settings.quoteApiEndpoint}"`)))throw new Error('Live quote form is missing its public Turnstile widget or API endpoint');
+if(!configuredQuoteForm && (!html.includes('disabled aria-disabled="true"')||html.includes('class="cf-turnstile"')))throw new Error('Unconfigured quote form should be disabled and not present a widget');
 if(!html.includes('name="companyWebsite"'))throw new Error('Honeypot protection missing');
 if(html.includes('window.location.href=uri')||html.includes('openSms('))throw new Error('Old SMS app submission handler remains');
 console.log('Reference layout, updated artwork, contacts, CMS, and root deployment files verified.');

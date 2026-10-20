@@ -280,3 +280,57 @@ img{display:block;max-width:100%}svg{display:block}h1,h2,h3,p{margin:0}button:fo
 .form-status[data-state="error"]{color:#f4a69b;font-weight:700}
 .form-status[data-state="sending"]{color:#f3d59d;font-weight:700}
 @media(max-width:640px){.field input,.field textarea{font-size:16px;min-height:47px}.field textarea{min-height:94px}.form-contact-hint{font-size:12px}.quote-turnstile{margin-block:13px 11px}}
+
+/* v9.1: mobile footer logo / copyright collision regression fix.
+   Keep image, navigation, contact rows and legal text in normal document flow.
+   Width-aware image aspect ratio removes any need for absolute positioning. */
+@media (max-width: 640px) {
+  .footer { overflow: visible; }
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding-bottom: 18px;
+  }
+  .footer-logo {
+    display: block;
+    position: relative;
+    width: min(210px, 75%);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    margin: 0 auto;
+    padding: 0;
+    flex: none;
+  }
+  .footer-logo .brand-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .footer-nav { margin: 0; }
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    position: relative;
+    clear: both;
+    min-height: 0;
+    padding-top: 18px;
+    line-height: 1.6;
+  }
+  .footer-bottom span {
+    position: static;
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+}
