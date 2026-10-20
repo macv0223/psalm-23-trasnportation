@@ -11,7 +11,7 @@ const html=readFileSync(full('dist/index.html'),'utf8');
 if(readFileSync(full('index.html'),'utf8')!==html)throw new Error('Published root index.html differs from build: stale homepage risk');
 // Regression: cached v1 green CSS must never be applied to new HTML.
 if(!html.includes('<style id="psalm23-critical-site-css">')||!html.includes('.value-card')||!html.includes('.service-grid{'))throw new Error('Homepage must contain matching inline black-and-gold CSS');
-if(!html.includes('name="psalm23-build" content="v7-mobile-hero-heading-overlay"'))throw new Error('Wrong release is being published');
+if(!html.includes('name="psalm23-build" content="v8-secure-online-quote-service"'))throw new Error('Wrong release is being published');
 if(!html.includes('<script type="module" id="psalm23-matching-app-js">'))throw new Error('Homepage must contain matching inline JavaScript');
 if(html.includes('<link rel="stylesheet" href="assets/site.css">')||html.includes('<script type="module" src="assets/app.js"></script>'))throw new Error('Homepage still loads old cacheable CSS/JS');
 if(!html.includes('class="icon value-icon"')||!html.includes('.icon{width:22px;height:22px'))throw new Error('SVG sizing CSS missing; icons could render huge');
@@ -28,4 +28,8 @@ if(cfg.backend.repo!=='macv0223/psalm-23-trasnportation'||cfg.publish_mode!=='ed
 if(cfg.collections[0].files[0].file!=='content/site.json')throw new Error('CMS must point to source JSON');
 const data=JSON.parse(readFileSync(full('dist/data/site.json'),'utf8'));
 if(data.settings.phone!=='281-766-1320'||data.settings.email!=='Psalm23Transportation@yahoo.com')throw new Error('Client contact details changed unexpectedly');
+for(const fileName of ['cms/quotes/worker.mjs','cms/quotes/wrangler.toml','docs/ONLINE-QUOTE-NOTIFICATIONS.md'])file(fileName);
+if(!html.includes('name="customerEmail"')||!html.includes('name="customerPhone"')||!html.includes('data-enabled="false"'))throw new Error('Secure contact fields and safe setup state are missing');
+if(!html.includes('name="companyWebsite"'))throw new Error('Honeypot protection missing');
+if(html.includes('window.location.href=uri')||html.includes('openSms('))throw new Error('Old SMS app submission handler remains');
 console.log('Reference layout, updated artwork, contacts, CMS, and root deployment files verified.');

@@ -1,4 +1,4 @@
-# Psalm 23 Transportation — Black & Gold Reference Layout (v3.0)
+# Psalm 23 Transportation — Black & Gold Website (v8.0 — Online Quote Notifications)
 
 A complete, responsive implementation of the approved **black-and-gold reference layout**. The cards, headings, text, navigation, images, quote form and editor are actual website elements rather than a flattened screenshot.
 
@@ -17,7 +17,7 @@ A complete, responsive implementation of the approved **black-and-gold reference
 5. Three independently editable, gold-bordered services cards.
 6. The circular Logo 2 emblem in the **Built on faith / Driven by care** section.
 7. **From pickup / To delivery** with three boxed process steps.
-8. Working quote-request draft with phone, email and copy alternatives.
+8. Secure direct quote request integration with email + SMS business alerts (requires provider setup); phone, email and copy alternatives remain available.
 9. Compact brand/navigation/contact footer.
 
 The scenic hero backdrop is a cleaned, right-side crop of the approved reference image, so the old banner's embedded wordmark **does not appear underneath the editable hero heading**. The full original five artwork files remain inside `client-artwork-originals/` and the web-ready source assets remain in `public/assets/uploads/`.
@@ -27,10 +27,11 @@ The scenic hero backdrop is a cleaned, right-side crop of the approved reference
 - `content/site.json`: single authoritative content file, edited by the Decap CMS.
 - `public/assets/render.js`: accessible HTML template and CMS content validation.
 - `public/assets/site.css`: all responsive styling.
-- `public/assets/app.js`: navigation and quote-text/email/copy actions.
+- `public/assets/app.js`: navigation, direct secure quote submission, and backup email/copy actions.
 - `public/assets/uploads/`: logo, hero, circular faith emblem, original and supplementary graphics.
 - `public/admin/`: browser CMS/preview.
 - `cms/oauth/`: Cloudflare Worker authentication source (no secrets included).
+- `cms/quotes/`: separate Cloudflare notification Worker using Resend and Twilio; credentials are **never committed**.
 - `.github/workflows/pages.yml`: deployment workflow.
 - `index.html` and `dist/`: generated, GitHub Pages-ready website.
 - `docs/DEPLOY.md`: deployment and admin setup instructions.
@@ -61,7 +62,7 @@ The editor page is included, **but live sign-in is not connected** until the own
 
 ## Contact and quote expectations
 
-The website displays **281-766-1320** and **Psalm23Transportation@yahoo.com**. A valid request form prepares an SMS message for the visitor to review and send. The email and copy controls provide alternatives, especially on desktop devices without a texting app. The site does **not** silently submit to a server or database.
+The website displays **281-766-1320** and **Psalm23Transportation@yahoo.com**. Once the separate notification Worker, providers, and Turnstile are configured, **Send Quote Request** submits directly to the business email and queues a text alert. Without that setup, the submit button is explicitly disabled and the email/copy backups remain available. The form does **not** open an SMS app on submission. See `docs/ONLINE-QUOTE-NOTIFICATIONS.md` for activation.
 
 The owner should review and approve the family narrative, all service claims, and the commitment wording before launch.
 
@@ -83,3 +84,8 @@ The public HTML now embeds its complete matching CSS and JavaScript to prevent o
 ## Version 5 mobile refinement
 
 Mobile header, hero, contact form and footer were rebuilt to prevent cramped text, excessive hero height and overlapping footer links. See `docs/MOBILE-LAYOUT-v5.md`. The built site embeds its own CSS and JavaScript to avoid stale-cache styling failures. The GitHub Pages artifact includes `CNAME` for `psalm23transportation.com`.
+
+
+## v8 — Direct online quote requests (email + SMS)
+
+See [ONLINE-QUOTE-NOTIFICATIONS.md](docs/ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Twilio SMS, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.

@@ -1,0 +1,25 @@
+PSALM 23 TRANSPORTATION — VERSION 8 (DIRECT QUOTE REQUESTS)
+
+This ZIP is the entire GitHub-ready website for:
+  macv0223/psalm-23-trasnportation
+  https://psalm23transportation.com
+
+IMPORTANT: Extract the archive first. Upload its CONTENTS (including the hidden .github folder)
+to the main branch, keeping index.html at the repository root. Do not upload the .zip itself.
+
+WHAT CHANGED
+- The quote form collects phone/email contact details, then submits over HTTPS.
+- Secure backend Cloudflare Worker included under cms/quotes/.
+- Worker sends the full quote to Psalm23Transportation@yahoo.com via Resend
+  and a text alert to 281-766-1320 via Twilio.
+- Turnstile protection and delivery/error status built in.
+- Mobile and desktop artwork, copy, CMS and navigation retained.
+
+IMPORTANT: This website cannot send email/SMS until you set up Cloudflare,
+Resend, Twilio and the required private credentials. The online button remains
+disabled until activated; phone/email/copy links remain available.
+
+FIRST READ docs/ONLINE-QUOTE-NOTIFICATIONS.md to activate and test.
+NEVER put private API keys in GitHub, the website or Decap CMS.
+
+BUILD: npm run verify

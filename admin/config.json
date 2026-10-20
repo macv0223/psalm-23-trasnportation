@@ -61,6 +61,20 @@
                   ]
                 },
                 {
+                  "name": "quoteApiEndpoint",
+                  "label": "Quote sending Worker URL (public)",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Paste your deployed Cloudflare quote Worker URL ending /api/quote, e.g. https://YOUR-WORKER.workers.dev/api/quote. Do not paste secret API keys."
+                },
+                {
+                  "name": "turnstileSiteKey",
+                  "label": "Cloudflare Turnstile public site key",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Public site key only (never the private Turnstile secret). Both this key and the Worker URL are needed for online submission."
+                },
+                {
                   "name": "logo",
                   "label": "Primary gold wordmark / header logo",
                   "widget": "image",
@@ -515,6 +529,21 @@
                   "widget": "string"
                 },
                 {
+                  "name": "phoneLabel",
+                  "label": "Visitor phone label",
+                  "widget": "string"
+                },
+                {
+                  "name": "emailLabel",
+                  "label": "Visitor email label",
+                  "widget": "string"
+                },
+                {
+                  "name": "contactHelp",
+                  "label": "Instructions for visitor contact details",
+                  "widget": "text"
+                },
+                {
                   "name": "pickupLabel",
                   "label": "Pickup label",
                   "widget": "string"
@@ -556,7 +585,7 @@
                 },
                 {
                   "name": "submitButton",
-                  "label": "Text action label",
+                  "label": "Send request button label",
                   "widget": "string"
                 },
                 {
@@ -571,7 +600,7 @@
                 },
                 {
                   "name": "disclaimer",
-                  "label": "Text/email behaviour note",
+                  "label": "Privacy / request note (stored for reference)",
                   "widget": "text"
                 }
               ]

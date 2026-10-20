@@ -18,7 +18,7 @@ const sections={
   services:['eyebrow','headline1','headline2','intro'],
   process:['eyebrow','headline1','headline2','intro'],
   story:['eyebrow','headline1','headline2','paragraph1','paragraph2','verse','verseCitation'],
-  quote:['eyebrow','headline1','headline2','intro','smallNote','nameLabel','pickupLabel','destinationLabel','loadLabel','dateLabel','submitButton','emailButton','copyButton','disclaimer']
+  quote:['eyebrow','headline1','headline2','intro','smallNote','nameLabel','phoneLabel','emailLabel','contactHelp','pickupLabel','destinationLabel','loadLabel','dateLabel','submitButton','emailButton','copyButton','disclaimer']
 };
 export function validateSite(data){
   if(!data||typeof data!=='object')throw new Error('content/site.json must be a JSON object');
@@ -29,6 +29,10 @@ export function validateSite(data){
   if(!/^#[0-9a-f]{6}$/i.test(data.settings.primaryColor)||!/^#[0-9a-f]{6}$/i.test(data.settings.accentColor))throw new Error('Brand colours must be six-digit hex values');
   if(!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(data.settings.email))throw new Error('Invalid contact email');
   if(phoneDigits(data.settings.phone).replace(/\D/g,'').length<10)throw new Error('Invalid contact phone number');
+  const ep=String(data.settings.quoteApiEndpoint||'').trim();
+  if(ep){try{const url=new URL(ep);if(url.protocol!=='https:'||url.username||url.password||url.hash||url.pathname!=='/api/quote')throw new Error();}catch{throw new Error('Quote endpoint must be an https:// URL ending in /api/quote');}}
+  const turnstileKey=String(data.settings.turnstileSiteKey||'').trim();
+  if(turnstileKey&&!/^[a-z0-9_-]{8,128}$/i.test(turnstileKey))throw new Error('Invalid public Turnstile site key');
   for(const [name,min,max] of [['services',1,12],['process',3,3]]){
     const list=data[name][name==='services'?'cards':'steps'];
     if(!Array.isArray(list)||list.length<min||list.length>max)throw new Error(`Invalid ${name} entries`);
@@ -78,6 +82,10 @@ export function renderPage(data){
   const storyBg=cssBg(y.backgroundImage,'assets/uploads/psalm23-story-section-bg.webp');
   const processBg=cssBg(p.backgroundImage,'assets/uploads/psalm23-process-section-bg.webp');
   const quoteBg=cssBg(q.backgroundImage,'assets/uploads/psalm23-quote-section-bg.webp');
+  const quoteEndpoint=String(s.quoteApiEndpoint||'').trim();
+  const siteKey=String(s.turnstileSiteKey||'').trim();
+  const quoteReady=Boolean(quoteEndpoint&&siteKey);
+  const formInfo=quoteReady?q.disclaimer:'Online submissions are not activated yet. Please call us or use “Prepare email instead” to send a quote request manually.';
   const style=`--site-bg:${hex(s.primaryColor,'#090909')};--site-gold:${hex(s.accentColor,'#E9B658')};--story-bg:${storyBg};--process-bg:${processBg};--quote-bg:${quoteBg}`;
   const logo=pic(s.logo,s.logoAlt,'brand-image','assets/uploads/psalm23-wordmark-gold.png',true);
   const iconForService=['truck','equipment','road'];
@@ -124,15 +132,19 @@ export function renderPage(data){
         <div class="contact-links"><a href="${esc(tel)}">${icon('phone','icon contact-icon')}<span><small>CALL US</small><strong>${esc(s.phone)}</strong></span></a><a href="${esc(mailto)}">${icon('mail','icon contact-icon')}<span><small>EMAIL US</small><strong>${esc(s.email)}</strong></span></a></div>
         <p class="small-note">${esc(q.smallNote)} <a href="${esc(sms)}">Text us directly ↗</a></p>
       </div>
-      <form class="quote-form" id="quote-form" data-phone="${esc(phone)}" data-email="${esc(s.email)}" novalidate>
+      <form class="quote-form" id="quote-form" data-phone="${esc(phone)}" data-email="${esc(s.email)}" data-endpoint="${esc(quoteEndpoint)}" data-enabled="${quoteReady}" novalidate>
         <div class="form-heading"><strong>REQUEST A QUOTE</strong>${icon('arrow')}</div>
         <div class="field"><label for="customer-name">${esc(q.nameLabel)} <span>*</span></label><input id="customer-name" name="customerName" type="text" placeholder="${esc(q.namePlaceholder)}" autocomplete="name" maxlength="120" required></div>
+        <p class="form-contact-hint" id="contact-help">${esc(q.contactHelp)}</p>
+        <div class="field-row"><div class="field"><label for="customer-phone">${esc(q.phoneLabel)}</label><input id="customer-phone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" maxlength="25" aria-describedby="contact-help"></div><div class="field"><label for="customer-email">${esc(q.emailLabel)}</label><input id="customer-email" name="customerEmail" type="email" autocomplete="email" placeholder="you@example.com" maxlength="180" aria-describedby="contact-help"></div></div>
         <div class="field-row"><div class="field"><label for="pickup">${esc(q.pickupLabel)} <span>*</span></label><input id="pickup" name="pickup" type="text" placeholder="${esc(q.pickupPlaceholder)}" maxlength="180" required></div><div class="field"><label for="destination">${esc(q.destinationLabel)} <span>*</span></label><input id="destination" name="destination" type="text" placeholder="${esc(q.destinationPlaceholder)}" maxlength="180" required></div></div>
         <div class="field"><label for="load">${esc(q.loadLabel)} <span>*</span></label><textarea id="load" name="load" rows="3" placeholder="${esc(q.loadPlaceholder)}" maxlength="2500" required></textarea></div>
         <div class="field"><label for="timeframe">${esc(q.dateLabel)}</label><input id="timeframe" name="timeframe" type="text" placeholder="${esc(q.datePlaceholder)}" maxlength="140"></div>
-        <button class="button button-gold submit-button" type="submit">${esc(q.submitButton)} ${icon('arrow')}</button>
+        <div class="quote-honeypot" aria-hidden="true"><label for="company-website">Leave this field blank</label><input id="company-website" name="companyWebsite" type="text" autocomplete="off" tabindex="-1"></div>
+        ${quoteReady?`<div class="quote-turnstile"><div class="cf-turnstile" data-sitekey="${esc(siteKey)}" data-theme="dark" data-size="flexible" data-action="quote_request"></div></div>`:''}
+        <button class="button button-gold submit-button" type="submit" ${quoteReady?'':'disabled aria-disabled="true"'}>${esc(q.submitButton)} ${icon('arrow')}</button>
         <div class="form-extras"><button type="button" data-action="email">${esc(q.emailButton)}</button><button type="button" data-action="copy">${esc(q.copyButton)}</button></div>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p><p class="form-note">${esc(q.disclaimer)}</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p><p class="form-note">${esc(formInfo)}</p>
       </form>
     </div></section>
   </main>
@@ -145,5 +157,5 @@ export function renderDocument(data){
   const s=data.settings;
   const title=`${s.businessName} | Family-Owned Flatbed Transportation`;
   const description=String(data.hero.intro).slice(0,158);
-  return `<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="${esc(hex(s.primaryColor,'#090909'))}"><meta name="description" content="${esc(description)}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta name="color-scheme" content="dark"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="preload" href="assets/uploads/psalm23-quote-section-bg.webp" as="image" type="image/webp"><link rel="stylesheet" href="assets/site.css"><title>${esc(title)}</title></head><body>${renderPage(data)}<script type="module" src="assets/app.js"></script></body></html>`;
+  return `<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="${esc(hex(s.primaryColor,'#090909'))}"><meta name="description" content="${esc(description)}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta name="color-scheme" content="dark"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="preload" href="assets/uploads/psalm23-quote-section-bg.webp" as="image" type="image/webp"><link rel="stylesheet" href="assets/site.css">${s.quoteApiEndpoint&&s.turnstileSiteKey?'<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>':''}<title>${esc(title)}</title></head><body>${renderPage(data)}<script type="module" src="assets/app.js"></script></body></html>`;
 }

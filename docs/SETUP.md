@@ -104,3 +104,8 @@ Visit `/admin/editor-guide.html` for everyday instructions. Version history is a
 - Keep dependencies and Worker's SDK/current browser behaviour under review as services update. The CMS editor currently loads a pinned Decap build from the unpkg CDN.
 - Restore from GitHub commit history or pull request review if a content update introduces a mistake.
 - The build tests do not substitute for an end-to-end test of the live GitHub OAuth, Cloudflare permissions, CDN availability, or a real visitor's SMS application.
+
+
+## v8 — Direct online quote requests (email + SMS)
+
+See [ONLINE-QUOTE-NOTIFICATIONS.md](ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Twilio SMS, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.

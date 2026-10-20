@@ -6,6 +6,8 @@ const colourRule=['^#[0-9a-fA-F]{6}$','Use a six-digit hex colour, for example #
 const settings=object('settings','Business details & visual branding',[
   str('businessName','Business name'),str('brandTop','Brand name (first line)'),str('brandBottom','Brand name (second line)'),
   str('phone','Call / text telephone number'),str('email','Contact email',{pattern:['^[^\\s@<>]+@[^\\s@<>]+\\.[^\\s@<>]+$','Enter a valid email address']}),
+  str('quoteApiEndpoint','Quote sending Worker URL (public)',{required:false,hint:'Paste your deployed Cloudflare quote Worker URL ending /api/quote, e.g. https://YOUR-WORKER.workers.dev/api/quote. Do not paste secret API keys.'}),
+  str('turnstileSiteKey','Cloudflare Turnstile public site key',{required:false,hint:'Public site key only (never the private Turnstile secret). Both this key and the Worker URL are needed for online submission.'}),
   photo('logo','Primary gold wordmark / header logo',{hint:'Approved transparent PNG wordmark; displays on black without a coloured rectangle.'}),txt('logoAlt','Logo description'),
   photo('featureGraphic','Supplementary truck graphic (stored, not displayed)',{hint:'Client-supplied truck & mountains Graphic 1.'}),txt('featureGraphicAlt','How-it-works image description'),
   photo('showcaseGraphic','Supplementary hauling graphic (stored, not displayed)',{hint:'Client-supplied truck with mountains & cross Graphic 2.'}),txt('showcaseGraphicAlt','Road-ahead image description'),
@@ -40,10 +42,10 @@ const showcase=object('showcase','Road ahead graphic & message',[
 const quote=object('quote','Request a quote form',[
   str('eyebrow','Section label'),str('headline1','Headline line 1'),str('headline2','Headline line 2'),txt('intro','Section introduction'),txt('smallNote','Phone/text/email reminder'),
   photo('backgroundImage','Contact section background image',{hint:'Wide atmospheric background behind the quote/contact section.'}),
-  str('nameLabel','Name label'),str('namePlaceholder','Name placeholder'),str('pickupLabel','Pickup label'),str('pickupPlaceholder','Pickup placeholder'),
+  str('nameLabel','Name label'),str('namePlaceholder','Name placeholder'),str('phoneLabel','Visitor phone label'),str('emailLabel','Visitor email label'),txt('contactHelp','Instructions for visitor contact details'),str('pickupLabel','Pickup label'),str('pickupPlaceholder','Pickup placeholder'),
   str('destinationLabel','Delivery label'),str('destinationPlaceholder','Delivery placeholder'),str('loadLabel','Items label'),str('loadPlaceholder','Items placeholder'),
-  str('dateLabel','Timing label'),str('datePlaceholder','Timing placeholder'),str('submitButton','Text action label'),
-  str('emailButton','Email action label'),str('copyButton','Copy action label'),txt('disclaimer','Text/email behaviour note')
+  str('dateLabel','Timing label'),str('datePlaceholder','Timing placeholder'),str('submitButton','Send request button label'),
+  str('emailButton','Email action label'),str('copyButton','Copy action label'),txt('disclaimer','Privacy / request note (stored for reference)')
 ]);
 export function cmsConfig(setup){
   let origin='https://not-configured.invalid';

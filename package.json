@@ -1,9 +1,9 @@
 {
   "name": "psalm23-transportation-black-and-gold",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "private": true,
   "type": "module",
-  "description": "Psalm 23 Transportation black-and-gold website with polished responsive mobile layout, inline matching CSS and Decap CMS",
+  "description": "Psalm 23 Transportation responsive black-and-gold website with secure online quote email/SMS notification integration (requires service setup)",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",

@@ -84,6 +84,7 @@ with sync_playwright() as p:
                     assert overlap < 1,f'footer logo overlaps nav ({overlap:.0f}px2)'
                 # Quote fields: required validation and copy-message behaviour.
                 page.locator('input[name="customerName"]').fill('Alex Example')
+                page.locator('input[name="customerEmail"]').fill('alex@example.com')
                 page.locator('input[name="pickup"]').fill('Houston, TX')
                 page.locator('input[name="destination"]').fill('Dallas, TX')
                 page.locator('textarea[name="load"]').fill('Equipment transport, 800 lb')

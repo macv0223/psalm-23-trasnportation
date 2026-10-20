@@ -269,3 +269,14 @@ img{display:block;max-width:100%}svg{display:block}h1,h2,h3,p{margin:0}button:fo
   .hero-copy > h1 { font-size: clamp(34px, 10vw, 38px); top: 52px; }
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* v8: Secure direct quote submissions, contact fields and delivery feedback. */
+.form-contact-hint{margin:0 0 10px;font-size:11px;color:#d7c6a7;line-height:1.55}
+.quote-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px;height:1px;overflow:hidden;pointer-events:none}
+.quote-turnstile{margin:12px 0 8px;min-height:60px;max-width:100%;overflow:hidden}
+.submit-button:disabled{opacity:.5;cursor:not-allowed;filter:grayscale(.6);box-shadow:none}
+.form-status[data-state="success"]{color:#bfe4c4;font-weight:700}
+.form-status[data-state="partial"]{color:#f6cb80;font-weight:700}
+.form-status[data-state="error"]{color:#f4a69b;font-weight:700}
+.form-status[data-state="sending"]{color:#f3d59d;font-weight:700}
+@media(max-width:640px){.field input,.field textarea{font-size:16px;min-height:47px}.field textarea{min-height:94px}.form-contact-hint{font-size:12px}.quote-turnstile{margin-block:13px 11px}}

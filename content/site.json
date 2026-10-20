@@ -15,7 +15,9 @@
     "verseReference": "Psalm 23:1",
     "copyrightYear": "2026",
     "primaryColor": "#090909",
-    "accentColor": "#E9B658"
+    "accentColor": "#E9B658",
+    "quoteApiEndpoint": "",
+    "turnstileSiteKey": ""
   },
   "navigation": {
     "home": "Home",
@@ -107,7 +109,7 @@
     "headline1": "Ready to",
     "headline2": "get a quote?",
     "intro": "Tell us what needs transporting, where it should be collected, and where it’s going. We’ll review the details and get back to you about availability and a quote.",
-    "smallNote": "Prefer a conversation? Call, text or email us directly.",
+    "smallNote": "Want to speak with us before submitting a request?",
     "nameLabel": "Your name",
     "namePlaceholder": "First and last name",
     "pickupLabel": "Pickup location",
@@ -118,11 +120,14 @@
     "loadPlaceholder": "Describe the items, approximate size or weight, and any special details",
     "dateLabel": "When do you need it moved? (optional)",
     "datePlaceholder": "Preferred date or timeframe",
-    "submitButton": "Start your quote request",
-    "emailButton": "Prepare email",
+    "submitButton": "Send Quote Request",
+    "emailButton": "Prepare email instead",
     "copyButton": "Copy request",
-    "disclaimer": "This creates a draft message in your messaging app. Please review and send it yourself. The form does not submit your request automatically.",
-    "backgroundImage": "assets/uploads/psalm23-quote-section-bg.webp"
+    "disclaimer": "Submitting sends your quote details securely to Psalm 23 Transportation by email and text alert. We will reply using the contact details you provide.",
+    "backgroundImage": "assets/uploads/psalm23-quote-section-bg.webp",
+    "phoneLabel": "Your phone number",
+    "emailLabel": "Your email address",
+    "contactHelp": "Please provide a phone number, an email address, or both so we can reply."
   },
   "values": [
     {
