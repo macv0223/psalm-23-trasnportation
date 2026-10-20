@@ -1,0 +1,53 @@
+import {readFileSync,writeFileSync,mkdirSync,readdirSync,statSync,copyFileSync,rmSync} from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {renderDocument,validateSite} from '../public/assets/render.js';
+import {cmsConfig,isConfigured} from './cms-config.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const read=p=>JSON.parse(readFileSync(path.join(root,p),'utf8'));
+function copyRecursive(from,to){
+  mkdirSync(to,{recursive:true});
+  for(const dirent of readdirSync(from,{withFileTypes:true})){
+    const src=path.join(from,dirent.name),dst=path.join(to,dirent.name);
+    if(dirent.isDirectory())copyRecursive(src,dst);
+    else if(dirent.isFile())copyFileSync(src,dst);
+  }
+}
+function build(){
+  const data=read('content/site.json');validateSite(data);
+  const setup=read('cms/setup.json');
+  if(process.env.CMS_OAUTH_ORIGIN)setup.oauthOrigin=process.env.CMS_OAUTH_ORIGIN;
+  if(process.env.SITE_URL)setup.siteUrl=process.env.SITE_URL;
+  if(process.env.CMS_REPOSITORY)setup.repository=process.env.CMS_REPOSITORY;
+  const dist=path.join(root,'dist');
+  rmSync(dist,{recursive:true,force:true});copyRecursive(path.join(root,'public'),dist);
+  const admin=path.join(dist,'admin');mkdirSync(admin,{recursive:true});
+  // Build a self-contained homepage: keep the exact matching stylesheet and
+  // UI behaviour with the HTML itself. Old GitHub Pages/browser-cached
+  // assets/site.css files previously caused catastrophic style mismatch:
+  // unbounded SVGs, pale backgrounds and broken navigation.
+  const css=readFileSync(path.join(root,'public','assets','site.css'),'utf8');
+  const js=readFileSync(path.join(root,'public','assets','app.js'),'utf8');
+  let page=renderDocument(data);
+  const styleLink='<link rel="stylesheet" href="assets/site.css">';
+  const scriptLink='<script type="module" src="assets/app.js"></script>';
+  if(!page.includes(styleLink)||!page.includes(scriptLink))throw new Error('Page assets cannot be embedded; HTML template changed');
+  if(css.includes('</style')||js.includes('</script'))throw new Error('Unsafe closing tag in application assets');
+  page=page.replace(styleLink,`<style id="psalm23-critical-site-css">\n${css}\n</style>`);
+  page=page.replace(scriptLink,`<script type="module" id="psalm23-matching-app-js">\n${js}\n</script>`);
+  page=page.replace('</head>','<meta name="psalm23-build" content="v5-responsive-mobile"></head>');
+  writeFileSync(path.join(dist,'index.html'),page,'utf8');
+  writeFileSync(path.join(admin,'config.json'),JSON.stringify(cmsConfig(setup),null,2));
+  writeFileSync(path.join(admin,'setup-status.json'),JSON.stringify({configured:isConfigured(setup),repository:setup.repository,editorAuthConfigured:Boolean(setup.oauthOrigin)},null,2));
+  // JSON content is only exposed in the built website for preview; no secrets are included.
+  mkdirSync(path.join(dist,'data'),{recursive:true});
+  writeFileSync(path.join(dist,'data','site.json'),JSON.stringify(data,null,2));
+  writeFileSync(path.join(dist,'robots.txt'),'User-agent: *\nAllow: /\n');
+  // Root-level files support GitHub Pages "Deploy from a branch / main / (root)".
+  // Remove old output before copying to prevent stale artwork from surviving rebuilds.
+  for(const folder of ['assets','admin','data'])rmSync(path.join(root,folder),{recursive:true,force:true});
+  copyRecursive(dist,root);
+  writeFileSync(path.join(root,'.nojekyll'),'','utf8');
+  console.log(`Built ${dist}. Editor access: ${isConfigured(setup)?'ready for deployed OAuth Worker':'requires GitHub/Cloudflare setup'}.`);
+}
+build();
