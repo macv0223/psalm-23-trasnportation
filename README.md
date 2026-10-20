@@ -85,7 +85,10 @@ The public HTML now embeds its complete matching CSS and JavaScript to prevent o
 
 Mobile header, hero, contact form and footer were rebuilt to prevent cramped text, excessive hero height and overlapping footer links. See `docs/MOBILE-LAYOUT-v5.md`. The built site embeds its own CSS and JavaScript to avoid stale-cache styling failures. The GitHub Pages artifact includes `CNAME` for `psalm23transportation.com`.
 
+<<<<<<< HEAD
 
 ## v8 — Direct online quote requests (email + SMS)
 
 See [ONLINE-QUOTE-NOTIFICATIONS.md](docs/ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Twilio SMS, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.
+=======
+>>>>>>> c996adfff251fda4a58a609dd80941e1e45aca19
