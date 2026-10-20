@@ -83,3 +83,4 @@ The public HTML now embeds its complete matching CSS and JavaScript to prevent o
 ## Version 5 mobile refinement
 
 Mobile header, hero, contact form and footer were rebuilt to prevent cramped text, excessive hero height and overlapping footer links. See `docs/MOBILE-LAYOUT-v5.md`. The built site embeds its own CSS and JavaScript to avoid stale-cache styling failures. The GitHub Pages artifact includes `CNAME` for `psalm23transportation.com`.
+
