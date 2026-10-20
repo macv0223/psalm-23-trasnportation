@@ -94,3 +94,281 @@ img{display:block;max-width:100%}svg{display:block}h1,h2,h3,p{margin:0}button:fo
 .contact-links{display:grid;gap:21px;margin-top:31px}.contact-links a{display:inline-flex;align-items:center;gap:17px;max-width:100%;min-width:0}.contact-links .contact-icon{width:40px;height:40px;padding:9px;border:1px solid var(--site-gold);border-radius:50%;color:var(--site-gold)}.contact-links span{display:grid;gap:5px;min-width:0}.contact-links small{font-weight:800;font-size:10px;letter-spacing:.22em}.contact-links strong{font-size:15px;word-break:break-word;font-weight:650}.contact-links a:hover strong{color:var(--site-gold)}
 .small-note{color:#bfb9b0;font-size:12px;line-height:1.6;margin-top:25px}.small-note a{color:var(--site-gold);text-decoration:underline;text-underline-offset:3px}
 .quote-form{border:1px solid var(--line);border-radius:4px;padding:23px 25px 19px;background:linear-gradient(130deg,#15120e,#070707 72%);box-shadow:0 20px 65px #0008}
+.form-heading{display:flex;justify-content:space-between;align-items:center;gap:13px;border-bottom:1px solid rgba(222,159,68,.36);padding-bottom:13px;margin-bottom:17px;font-size:12px;letter-spacing:.08em}.form-heading .icon{width:17px}
+.field{display:grid;gap:5px;margin-bottom:12px;min-width:0}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{font-size:11px;font-weight:700;color:#e9e8e4}.field label span{color:var(--site-gold)}
+.field input,.field textarea{background:linear-gradient(180deg,#2a2a2a,#1f1f1f);color:#f8f5ed;border:1px solid #4b4843;border-radius:2px;width:100%;padding:10px 12px;min-height:41px;font-size:12px;outline-offset:2px}
+.field textarea{resize:vertical;min-height:65px;line-height:1.5}.field input::placeholder,.field textarea::placeholder{color:#b0aaa2}
+.submit-button{width:100%;margin-top:6px;border-radius:3px;min-height:49px}
+.form-extras{display:flex;justify-content:center;align-items:center;gap:23px;margin-top:12px}.form-extras button{border:0;background:none;color:var(--site-gold);font-size:11px;text-decoration:underline;text-underline-offset:4px;padding:3px 0}
+.form-status{color:#dcd2bd;font-size:12px;line-height:1.55;margin-top:8px}.form-note{font-size:10px;line-height:1.5;color:#aaa197;text-align:center;margin-top:8px}
+/* Compact footer as reference */
+.footer{background:#040404;padding:22px 0 18px;border-top:1px solid rgba(198,135,37,.45)}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #513c20;padding-bottom:12px}
+.footer-logo{width:165px;height:67px;display:grid;place-items:center;flex:none}.footer-logo img{width:100%;height:100%;object-fit:contain}
+.footer-nav{display:flex;justify-content:center;align-items:center;gap:clamp(13px,1.6vw,24px);flex-wrap:wrap}
+.footer-nav a{font-size:11px;color:#eee8df;white-space:nowrap}.footer-nav a:hover{color:var(--site-gold)}
+.footer-contact{display:grid;gap:9px;justify-items:start}.footer-contact a{font-size:11px;white-space:nowrap;display:flex;align-items:center;gap:7px}.footer-contact .icon{width:14px;height:14px}.footer-contact a:hover{color:var(--site-gold)}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding-top:11px;font-size:10px;color:#bcb3a5}.footer-bottom span:last-child{color:#d6a557;letter-spacing:.17em;font-weight:800;font-size:9px}
+/* Layout transitions */
+@media(max-width:1190px){.container{width:calc(100% - 62px)}.site-brand{width:176px}.nav{gap:16px;margin-right:0}.nav a{font-size:11px}.nav-cta{font-size:9px;padding:11px 13px}.hero-copy{width:min(460px,49%)}.hero h1{font-size:clamp(58px,7.5vw,87px)}.hero-intro{font-size:15px}.story-grid{gap:35px}.quote-grid{gap:42px}.footer-nav{gap:13px}}
+@media(max-width:890px){.container{width:calc(100% - 44px)}.utility-promise{letter-spacing:.07em}.utility-contacts a:last-child{display:none}.site-header{height:88px}.nav-inner{position:relative}.site-brand{width:170px}.menu-toggle{display:grid;place-content:center;gap:5px;margin-left:auto;border:1px solid #906b36;width:43px;height:41px;background:#0d0b08;border-radius:3px}.menu-toggle span{display:block;width:19px;height:2px;background:var(--site-gold)}.nav{display:none;position:absolute;top:calc(100% + 1px);left:-22px;right:-22px;z-index:50;padding:10px 23px 19px;background:#080706;border:1px solid #89632d;box-shadow:0 18px 30px #000;align-items:stretch}.nav.is-open{display:grid}.nav a{padding:13px;border-bottom:1px solid #392b1b;font-size:14px}.nav .nav-home:after{display:none}.nav-cta{margin-left:0}.hero-copy{width:min(500px,59%)}.hero-darkener{background:linear-gradient(90deg,#050505 0%,rgba(5,5,5,.99) 31%,rgba(5,5,5,.79) 49%,rgba(5,5,5,.08) 79%)}.value-card{gap:9px;padding-inline:8px}.value-card span{font-size:9px}.value-card .value-icon{width:28px;height:28px}.section-pad{padding-block:56px}.service-grid,.steps-grid{gap:12px}.service-card{padding:18px 13px;min-height:220px}.service-card h3{font-size:15px}.service-card p{font-size:12px}.step-card{padding-inline:12px}.step-body{gap:8px}.step-body h3{font-size:11px}.step-body p{font-size:11px}.story-grid{grid-template-columns:.72fr 1.28fr;gap:22px}.story-content h2{font-size:clamp(34px,5vw,52px)}.story-content>p:not(.eyebrow){font-size:12px}.quote-grid{gap:25px}.footer-top{flex-wrap:wrap}.footer-nav{justify-content:flex-start}}
+@media(max-width:640px){html{scroll-padding-top:81px}.container{width:calc(100% - 34px)}.utility-bar{height:30px}.utility-inner{font-size:8px;gap:0}.utility-promise{gap:5px;letter-spacing:.045em}.utility-promise b:last-of-type,.utility-promise b:last-of-type+*{display:none}.utility-contacts{display:none}.site-header{height:79px}.site-brand{width:140px}.nav-cta{font-size:9px;min-height:40px;padding:9px 11px}.nav-cta .icon{width:12px}.nav{left:-17px;right:-17px}.hero{min-height:650px}.hero-inner{min-height:650px;align-items:flex-start}.hero-copy{width:100%;padding-top:47px;padding-bottom:16px}.hero h1{font-size:clamp(54px,13vw,80px)}.hero-eyebrow{font-size:9px;margin-bottom:15px}.hero-intro{max-width:360px;font-size:14px;margin-top:18px;line-height:1.58}.hero-actions{gap:10px;margin-top:19px}.hero-actions .button{font-size:10px;padding:11px 13px;min-height:45px}.hero-signoff{font-size:9px;margin-top:16px;max-width:350px}.hero-art{left:0;top:51%;bottom:0}.hero-backdrop{object-position:47% center}.hero-darkener{background:linear-gradient(180deg,#030303 0%,rgba(3,3,3,.99) 23%,rgba(3,3,3,.95) 42%,rgba(3,3,3,.75) 59%,rgba(3,3,3,.18) 92%),linear-gradient(90deg,#000a,transparent)}
+.value-grid{grid-template-columns:1fr 1fr;padding-block:9px;gap:3px}.value-card{justify-content:flex-start;min-height:60px;padding:9px}.value-card:not(:last-child):after{display:none}.value-card span{font-size:9px}.value-card .value-icon{width:26px;height:26px}
+.section-pad{padding-block:48px}.section-title-centered h2{font-size:clamp(25px,6.6vw,36px)}.title-flanked{gap:12px}.section-title-centered{margin-bottom:26px}.services-intro{font-size:10px;letter-spacing:.12em}.service-grid,.steps-grid{grid-template-columns:1fr;gap:13px}.service-card{min-height:174px;padding:15px 34px}.card-icon{margin:2px 0 9px}.card-icon .icon{width:37px;height:37px}.service-card h3{font-size:18px}.service-card p{font-size:13px}.underlink{font-size:12px}
+.story-grid,.process-top,.quote-grid{grid-template-columns:1fr}.story-grid{gap:13px}.faith-picture{width:min(295px,80%)}.story-content h2,.process-top h2,.quote-copy h2{font-size:clamp(37px,9vw,53px)}.story-content>p:not(.eyebrow){font-size:14px}.story-content blockquote{margin-top:19px}.process-top{gap:18px}.process-top>p{margin:0}.step-card{min-height:136px}.step-body{gap:18px}.step-body h3{font-size:13px}.step-body p{font-size:12px}.quote-grid{gap:35px}.quote-copy h2{margin-top:10px}.contact-links{margin-top:28px}.quote-form{padding:22px 18px}.footer-top{display:grid;grid-template-columns:1fr;gap:20px}.footer-logo{width:170px}.footer-nav{justify-content:start}.footer-contact{gap:12px}.footer-bottom{flex-direction:column;align-items:flex-start;font-size:10px}
+}
+@media(max-width:390px){.site-brand{width:116px}.nav-cta{font-size:8px;padding:8px 9px}.nav-cta .icon{display:none}.menu-toggle{width:38px;height:38px}.hero h1{font-size:clamp(48px,13vw,58px)}.hero-actions .button{font-size:9px}.value-card span{font-size:8px}.footer-contact a{white-space:normal;overflow-wrap:anywhere}}
+/* Tablet footer: two intentional columns instead of a wrapped, uneven row. */
+@media (min-width: 641px) and (max-width: 890px) {
+  .footer-top { display: grid; grid-template-columns: 185px minmax(0, 1fr); gap: 11px 20px; align-items: center; }
+  .footer-logo { grid-row: 1 / 3; width: 185px; height: 118px; }
+  .footer-nav { grid-column: 2; justify-content: flex-end; flex-wrap: wrap; column-gap: 17px; row-gap: 9px; }
+  .footer-nav a { min-height: 32px; display: inline-flex; align-items: center; }
+  .footer-contact { grid-column: 2; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 18px; }
+  .footer-contact a { white-space: normal; overflow-wrap: anywhere; }
+}
+/* Mobile-first refinements — v5. Desktop layout remains intentionally unchanged.
+   The hero and footer use natural content height instead of forced overlapping boxes. */
+@media (max-width: 640px) {
+  html { scroll-padding-top: 86px; }
+  .container { width: calc(100% - 36px); }
+  /* Short, legible trust line and three-column compact mobile header. */
+  .utility-bar { height: 29px; }
+  .utility-inner { justify-content: center; gap: 0; }
+  .utility-promise { font-size: 9px; font-weight: 760; letter-spacing: .065em; gap: 7px; white-space: nowrap; }
+  .utility-reliability { display: none; }
+  .utility-cross { font-size: 16px; margin-right: 3px; }
+  .site-header { height: 83px; }
+  .nav-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 11px; }
+  .site-brand { justify-self: start; width: min(100%, 158px); height: 80px; min-width: 0; }
+  .menu-toggle { justify-self: end; margin: 0; width: 42px; height: 42px; flex: none; }
+  .nav-cta { justify-self: end; min-height: 42px; padding: 10px 12px; font-size: 9px; letter-spacing: .02em; gap: 0; }
+  .nav-cta .icon { display: none; }
+  .nav { left: -18px; right: -18px; margin: 0; }
+  .nav.is-open { padding: 10px 18px 16px; }
+  .nav a { min-height: 44px; display: flex; align-items: center; }
+  /* Artwork is first on phones: a complete panoramic hero, never cut off by the headline. */
+  .hero { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+  .hero-art {
+    order: 0; position: relative; top: auto; bottom: auto; left: auto; right: auto;
+    z-index: 0; flex: none; display: block; width: 100%; height: auto;
+    aspect-ratio: 16 / 9; overflow: hidden; background: #0c0806;
+    border-bottom: 1px solid rgba(224,169,59,.45);
+  }
+  .hero-backdrop { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 57%; }
+  .hero-darkener { display: none; }
+  .hero-inner { order: 1; min-height: 0; display: block; padding-top: 27px; padding-bottom: 31px; }
+  .hero-copy { width: 100%; max-width: 100%; padding: 0; }
+  .hero-eyebrow { font-size: 9px; letter-spacing: .16em; line-height: 1.5; margin: 0 0 11px; }
+  .hero h1 { font-size: clamp(46px, 12.6vw, 64px); line-height: .96; letter-spacing: -.052em; }
+  .hero-intro { max-width: 520px; margin-top: 16px; font-size: 14px; line-height: 1.62; }
+  .hero-actions { gap: 9px; margin-top: 19px; }
+  .hero-actions .button { min-height: 46px; padding: 12px 15px; font-size: 10px; gap: 8px; }
+  .hero-actions .button .icon { width: 14px; height: 14px; }
+  .hero-signoff { max-width: 420px; margin-top: 17px; font-size: 9px; line-height: 1.65; letter-spacing: .11em; }
+  /* Balanced cards, comfortable mobile reading and 44px+ touch targets. */
+  .value-grid { padding-block: 10px; row-gap: 0; column-gap: 7px; }
+  .value-card { min-height: 68px; gap: 11px; padding: 9px 6px; }
+  .value-card span { font-size: 9px; line-height: 1.45; letter-spacing: .035em; }
+  .value-card .value-icon { width: 27px; height: 27px; }
+  .section-pad { padding-block: 52px; }
+  .section-title-centered { margin-bottom: 23px; }
+  .service-grid, .steps-grid { gap: 12px; }
+  .service-card { min-height: 174px; }
+  .card-arrow { width: 40px; height: 40px; }
+  .story-grid { gap: 24px; }
+  .faith-picture { width: min(270px, 80%); }
+  .story-content h2, .process-top h2, .quote-copy h2 { font-size: clamp(35px, 9vw, 50px); }
+  .story-content>p:not(.eyebrow) { line-height: 1.72; }
+  .quote-grid { gap: 28px; }
+  .quote-intro { line-height: 1.7; }
+  .contact-links { gap: 16px; margin-top: 23px; }
+  .contact-links a { gap: 12px; }
+  .contact-links strong { overflow-wrap: anywhere; }
+  .small-note { margin-top: 18px; }
+  .quote-form { min-width: 0; width: 100%; padding: 22px 17px 22px; }
+  .form-heading { margin-bottom: 19px; font-size: 12px; }
+  .field { gap: 7px; margin-bottom: 14px; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .field label { font-size: 12px; }
+  .field input,.field textarea { font-size: 16px; line-height: 1.4; min-height: 47px; padding: 12px 13px; }
+  .field textarea { min-height: 116px; }
+  .submit-button { min-height: 51px; padding-inline: 10px; font-size: 10px; white-space: normal; }
+  .form-extras { margin-top: 13px; justify-content: center; gap: 26px; }
+  .form-extras button { min-height: 44px; font-size: 13px; padding: 10px 3px; }
+  .form-note { font-size: 11px; line-height: 1.7; margin-top: 11px; }
+  /* Footer: dedicated logo, navigation and contact rows. No overlap or squashing. */
+  .footer { padding-top: 27px; padding-bottom: 25px; }
+  .footer-top { display: flex; flex-direction: column; gap: 0; align-items: stretch; padding-bottom: 19px; }
+  .footer-logo { display: grid; place-items: center; flex: none; width: 210px; height: 135px; max-width: 100%; margin: 0 auto 13px; }
+  .footer-logo .brand-image { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+  .footer-nav {
+    width: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 0 18px; border-top: 1px solid rgba(215,165,84,.25);
+    border-bottom: 1px solid rgba(215,165,84,.25); padding: 9px 3px;
+  }
+  .footer-nav a { display: inline-flex; align-items: center; min-height: 43px; font-size: 12px; line-height: 1.4; }
+  .footer-contact { display: grid; grid-template-columns: 1fr; gap: 7px; justify-items: stretch; width: 100%; padding: 17px 0 3px; }
+  .footer-contact a { display: flex; align-items: flex-start; min-height: 42px; padding: 10px 0; font-size: 12px; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+  .footer-contact .icon { width: 18px; height: 18px; margin-top: 0; }
+  .footer-bottom { gap: 11px; padding-top: 17px; line-height: 1.6; font-size: 11px; }
+  .footer-bottom span:last-child { font-size: 9px; letter-spacing: .115em; }
+}
+@media (max-width: 370px) {
+  .container { width: calc(100% - 28px); }
+  .nav-inner { gap: 7px; }
+  .site-brand { width: min(100%, 122px); }
+  .menu-toggle { width: 39px; height: 40px; }
+  .nav-cta { min-height: 40px; padding: 9px 9px; font-size: 8.5px; letter-spacing: 0; }
+  .hero h1 { font-size: clamp(43px, 12.1vw, 49px); }
+  .hero-actions .button { font-size: 9px; padding: 11px 12px; }
+  .footer-nav { gap: 0 14px; }
+  .footer-nav a { font-size: 11.5px; }
+}
+
+/* v7: Keep the single, CMS-editable hero heading in the black space of the
+   artwork on phones. The introduction, action buttons and signoff remain below
+   the photograph. The desktop and tablet layout is unchanged. */
+@media (max-width: 640px) {
+  .hero { position: relative; isolation: isolate; }
+  .hero-art { min-height: 208px; }
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+      rgba(0,0,0,.79) 0%,
+      rgba(0,0,0,.66) 29%,
+      rgba(0,0,0,.28) 55%,
+      rgba(0,0,0,0) 82%);
+  }
+  /* Remove the heading from the below-image text flow without duplicating
+     it in the DOM (screen readers and the editor retain a single h1). */
+  .hero-inner, .hero-copy { position: static; }
+  .hero-copy > .hero-eyebrow,
+  .hero-copy > h1 { position: absolute; left: 18px; z-index: 4; }
+  .hero-copy > .hero-eyebrow {
+    top: 17px; margin: 0; max-width: min(245px, 82%);
+    font-size: 9px; letter-spacing: .115em; line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(0,0,0,.9);
+  }
+  .hero-copy > h1 {
+    top: 50px; margin: 0; width: auto; max-width: calc(100% - 36px);
+    font-size: clamp(36px, 9.8vw, 56px); line-height: .96;
+    letter-spacing: -.056em;
+    text-shadow: 0 2px 13px rgba(0,0,0,.94);
+  }
+  .hero-copy > h1 span, .hero-copy > h1 em { white-space: nowrap; }
+  .hero-intro { margin-top: 0; }
+}
+@media (max-width: 370px) {
+  .hero-copy > .hero-eyebrow, .hero-copy > h1 { left: 14px; }
+  .hero-copy > h1 { font-size: clamp(34px, 10vw, 38px); top: 52px; }
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* v8: Secure direct quote submissions, contact fields and delivery feedback. */
+.form-contact-hint{margin:0 0 10px;font-size:11px;color:#d7c6a7;line-height:1.55}
+.quote-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px;height:1px;overflow:hidden;pointer-events:none}
+.quote-turnstile{margin:12px 0 8px;min-height:60px;max-width:100%;overflow:hidden}
+.submit-button:disabled{opacity:.5;cursor:not-allowed;filter:grayscale(.6);box-shadow:none}
+.form-status[data-state="success"]{color:#bfe4c4;font-weight:700}
+.form-status[data-state="partial"]{color:#f6cb80;font-weight:700}
+.form-status[data-state="error"]{color:#f4a69b;font-weight:700}
+.form-status[data-state="sending"]{color:#f3d59d;font-weight:700}
+@media(max-width:640px){.field input,.field textarea{font-size:16px;min-height:47px}.field textarea{min-height:94px}.form-contact-hint{font-size:12px}.quote-turnstile{margin-block:13px 11px}}
+
+/* v9.1: mobile footer logo / copyright collision regression fix.
+   Keep image, navigation, contact rows and legal text in normal document flow.
+   Width-aware image aspect ratio removes any need for absolute positioning. */
+@media (max-width: 640px) {
+  .footer { overflow: visible; }
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding-bottom: 18px;
+  }
+  .footer-logo {
+    display: block;
+    position: relative;
+    width: min(210px, 75%);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    margin: 0 auto;
+    padding: 0;
+    flex: none;
+  }
+  .footer-logo .brand-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .footer-nav { margin: 0; }
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    position: relative;
+    clear: both;
+    min-height: 0;
+    padding-top: 18px;
+    line-height: 1.6;
+  }
+  .footer-bottom span {
+    position: static;
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+  }
+}
+
+/* v9.2: Correct the desktop/tablet footer logo's intrinsic image overflow.
+   The original grid box was 67px high, but its 3:2 PNG painted at 110px,
+   overlapping the copyright. Give the box the same aspect ratio as its art,
+   keep the image inside that box, and maintain two distinct footer rows. */
+.footer-logo {
+  display: block;
+  width: 190px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  min-width: 0;
+  min-height: 0;
+  flex: 0 0 auto;
+}
+.footer-logo .brand-image,
+.footer-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.footer-top { padding-bottom: 18px; }
+.footer-bottom {
+  position: relative;
+  clear: both;
+  margin-top: 0;
+  padding-top: 18px;
+}
+@media (min-width: 641px) and (max-width: 890px) {
+  .footer-logo { width: 185px; height: auto; aspect-ratio: 3 / 2; }
+}
+@media (max-width: 640px) {
+  .footer-logo { width: min(210px, 75%); height: auto; margin-inline: auto; }
+}
