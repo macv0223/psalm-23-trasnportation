@@ -16,8 +16,8 @@
     "copyrightYear": "2026",
     "primaryColor": "#090909",
     "accentColor": "#E9B658",
-    "quoteApiEndpoint": "",
-    "turnstileSiteKey": ""
+    "quoteApiEndpoint": "https://psalm23-quote-notifications.macv0223.workers.dev/api/quote",
+    "turnstileSiteKey": "0x4AAAAAAFeGMamAyuJEVlffgi_-KsOY5tM"
   },
   "navigation": {
     "home": "Home",
