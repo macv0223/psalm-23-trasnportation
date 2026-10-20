@@ -38,6 +38,8 @@ const withFetch = async (fake, callback) => {
 test('site retains safe pending state and activates only with endpoint and public Turnstile key', () => {
   const site = JSON.parse(readFileSync(new URL('../content/site.json', import.meta.url), 'utf8'));
   assert.equal(validateSite(site), true);
+  site.settings.quoteApiEndpoint = '';
+  site.settings.turnstileSiteKey = '';
   let html = renderDocument(site);
   assert.match(html, /name="customerEmail"/);
   assert.match(html, /name="customerPhone"/);
