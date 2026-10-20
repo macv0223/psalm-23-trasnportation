@@ -24,7 +24,17 @@ try{
             const entry=this.props.entry.toJS(),draft=entry.data||{};
             // Decap may render before every nested CMS field is ready. Preserve defaults until then.
             const snapshot=structuredClone(siteData);
-            for(const key of Object.keys(snapshot)){if(draft[key]&&typeof draft[key]==='object'){snapshot[key]={...snapshot[key],...draft[key]};}}
+            // Decap list fields (such as the four commitments) are arrays.
+            // Spreading an array into {...} turns it into an object and breaks
+            // renderPage(...), which expects values.map(...) to exist.
+            for(const key of Object.keys(snapshot)){
+              const incoming=draft[key];
+              if(Array.isArray(snapshot[key])){
+                if(Array.isArray(incoming))snapshot[key]=incoming;
+              }else if(incoming && typeof incoming==='object' && !Array.isArray(incoming)){
+                snapshot[key]={...snapshot[key],...incoming};
+              }
+            }
             // Resolve temporary uploaded images for previews without modifying saved content.
             for(const [section,key] of [['settings','logo'],['settings','featureGraphic'],['settings','showcaseGraphic'],['hero','heroImage'],['story','storyImage']]){
               if(snapshot[section]?.[key]){
