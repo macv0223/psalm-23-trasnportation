@@ -283,7 +283,7 @@ img{display:block;max-width:100%}svg{display:block}h1,h2,h3,p{margin:0}button:fo
 .form-status[data-state="sending"]{color:#f3d59d;font-weight:700}
 @media(max-width:640px){.field input,.field textarea{font-size:16px;min-height:47px}.field textarea{min-height:94px}.form-contact-hint{font-size:12px}.quote-turnstile{margin-block:13px 11px}}
 
-</style><title>Psalm 23 Transportation | Family-Owned Flatbed Transportation</title><meta name="psalm23-build" content="v8-secure-online-quote-service"></head><body><div class="site" style="--site-bg:#090909;--site-gold:#E9B658;--story-bg:url('assets/uploads/psalm23-story-section-bg.webp');--process-bg:url('assets/uploads/psalm23-process-section-bg.webp');--quote-bg:url('assets/uploads/psalm23-quote-section-bg.webp')">
+</style><title>Psalm 23 Transportation | Family-Owned Flatbed Transportation</title><meta name="psalm23-build" content="v9-secure-email-only-quotes"></head><body><div class="site" style="--site-bg:#090909;--site-gold:#E9B658;--story-bg:url('assets/uploads/psalm23-story-section-bg.webp');--process-bg:url('assets/uploads/psalm23-process-section-bg.webp');--quote-bg:url('assets/uploads/psalm23-quote-section-bg.webp')">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="utility-bar"><div class="container utility-inner"><span class="utility-promise"><span class="utility-cross">✝</span> FAMILY-OWNED <b>·</b> FAITH-GUIDED <span class="utility-reliability"><b>·</b> RELIABLE TRANSPORTATION</span></span><div class="utility-contacts"><a href="tel:2817661320"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72l.5 3a2 2 0 0 1-.57 1.74l-1.6 1.6a16 16 0 0 0 4.6 4.6l1.6-1.6a2 2 0 0 1 1.74-.57l3 .5A2 2 0 0 1 22 16.92z"/></svg> 281-766-1320</a><a href="mailto:Psalm23Transportation@yahoo.com"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg> Psalm23Transportation@yahoo.com</a></div></div></div>
   <header class="site-header"><div class="container nav-inner">
@@ -426,14 +426,8 @@ if(form){
         signal:controller.signal
       });
       const result=await response.json().catch(()=>null);
-      if(response.ok&&result?.accepted){
-        if(result.sent?.email&&result.sent?.sms){
-          setStatus('Your request has been submitted! The business email alert was accepted and the text alert was queued. We will contact you using the details you provided.','success');
-        }else if(result.sent?.email){
-          setStatus('Your request was submitted by email, but the text alert could not be queued. Please do not resubmit; the business can reply to your contact details.','partial');
-        }else{
-          setStatus('Your request was queued by text, but the email notification failed. Please call the business to confirm rather than submitting twice.','partial');
-        }
+      if(response.ok&&result?.accepted&&result.sent?.email){
+        setStatus('Your quote request has been submitted to our email service. We will contact you using the details you provided.','success');
         form.reset();
       }else{
         const safeMessage=typeof result?.message==='string'&&result.message.length<=220?result.message:'We could not confirm that your request was delivered. Please call or use the email option below.';

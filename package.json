@@ -1,9 +1,9 @@
 {
   "name": "psalm23-transportation-black-and-gold",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "private": true,
   "type": "module",
-  "description": "Psalm 23 Transportation responsive black-and-gold website with secure online quote email/SMS notification integration (requires service setup)",
+  "description": "Psalm 23 Transportation responsive black-and-gold website with secure online quote email-only notification integration (requires service setup)",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",

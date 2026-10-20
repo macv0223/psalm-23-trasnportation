@@ -1,0 +1,17 @@
+PSALM 23 TRANSPORTATION - EMAIL-ONLY QUOTE FORM v9
+
+What is new:
+- Secure Cloudflare quote Worker no longer requires Twilio or any paid SMS provider.
+- Turnstile and Resend deliver quote details to Psalm23Transportation@yahoo.com.
+- Browser confirmation describes email only; direct phone/text contact links still work normally.
+- Existing black/gold site, artwork, mobile hero, and CMS OAuth Worker are preserved.
+
+Before publishing website changes:
+1. Replace the existing Cloudflare Worker with cms/quotes/worker.mjs.
+2. Deploy and verify /health reports ready:true with channel:email.
+3. Put the actual public Turnstile SITE KEY and quote Worker URL in content/site.json.
+4. Rebuild/upload the complete site to GitHub main. Don't upload this release note alone.
+5. Submit a test quote and verify it arrives in the Yahoo inbox.
+6. Enable Yahoo Mail app push notifications on the client's phone.
+
+Full instructions: docs/ONLINE-QUOTE-NOTIFICATIONS.md

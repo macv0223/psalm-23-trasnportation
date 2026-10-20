@@ -35,7 +35,7 @@ function build(){
   if(css.includes('</style')||js.includes('</script'))throw new Error('Unsafe closing tag in application assets');
   page=page.replace(styleLink,`<style id="psalm23-critical-site-css">\n${css}\n</style>`);
   page=page.replace(scriptLink,`<script type="module" id="psalm23-matching-app-js">\n${js}\n</script>`);
-  page=page.replace('</head>','<meta name="psalm23-build" content="v8-secure-online-quote-service"></head>');
+  page=page.replace('</head>','<meta name="psalm23-build" content="v9-secure-email-only-quotes"></head>');
   writeFileSync(path.join(dist,'index.html'),page,'utf8');
   writeFileSync(path.join(admin,'config.json'),JSON.stringify(cmsConfig(setup),null,2));
   writeFileSync(path.join(admin,'setup-status.json'),JSON.stringify({configured:isConfigured(setup),repository:setup.repository,editorAuthConfigured:Boolean(setup.oauthOrigin)},null,2));

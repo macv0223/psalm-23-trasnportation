@@ -76,7 +76,7 @@ The Decap CMS editor uses an **editorial workflow**: changes can be drafted and 
 1. The approved bronze-and-forest-green jigsaw-pattern truck artwork is bundled locally and displayed in the navigation, homepage, story panel, footer, favicon, and editor. It does not link to the original site.
 2. If the owner later changes the brand, open **Branding & contact details → Primary jigsaw-pattern truck logo** in the CMS and upload the approved replacement. Include an accessible image description.
 3. Update the telephone, email, and any wording the business owner approves. Do not invent insurance, licenses, capacity, or routes.
-4. Make a test quote request on a phone, review that it opens the messaging app with the correct number and details, and **send only a deliberate test message**. On a desktop, use the **Copy request** or **Email instead** options.
+4. Make a test quote request on a phone, check that the online form submits to the Worker and sends an email, not an SMS draft. On a desktop, use the **Copy request** or **Email instead** options.
 5. Confirm the business actually receives the message and responds. The website itself does not store quote submissions.
 
 ## Optional — Add a custom domain and HTTPS
@@ -103,9 +103,9 @@ Visit `/admin/editor-guide.html` for everyday instructions. Version history is a
 - GitHub's OAuth `public_repo` scope is broader than this single repository; the Worker checks the approved target repository before allowing sign-in, but the resulting OAuth token retains its GitHub scope. Review authorization implications with editors.
 - Keep dependencies and Worker's SDK/current browser behaviour under review as services update. The CMS editor currently loads a pinned Decap build from the unpkg CDN.
 - Restore from GitHub commit history or pull request review if a content update introduces a mistake.
-- The build tests do not substitute for an end-to-end test of the live GitHub OAuth, Cloudflare permissions, CDN availability, or a real visitor's SMS application.
+- The build tests do not substitute for an end-to-end test of the live GitHub OAuth, Cloudflare permissions, CDN availability, or a real visitor's email app.
 
 
-## v8 — Direct online quote requests (email + SMS)
+## v8 — Direct online quote requests (email only)
 
-See [ONLINE-QUOTE-NOTIFICATIONS.md](ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Twilio SMS, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.
+See [ONLINE-QUOTE-NOTIFICATIONS.md](ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.

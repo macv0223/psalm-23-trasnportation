@@ -123,7 +123,7 @@
     "submitButton": "Send Quote Request",
     "emailButton": "Prepare email instead",
     "copyButton": "Copy request",
-    "disclaimer": "Submitting sends your quote details securely to Psalm 23 Transportation by email and text alert. We will reply using the contact details you provide.",
+    "disclaimer": "Submitting sends your quote details securely to Psalm 23 Transportation by email. We will reply using the contact details you provide.",
     "backgroundImage": "assets/uploads/psalm23-quote-section-bg.webp",
     "phoneLabel": "Your phone number",
     "emailLabel": "Your email address",

@@ -62,7 +62,7 @@ The editor page is included, **but live sign-in is not connected** until the own
 
 ## Contact and quote expectations
 
-The website displays **281-766-1320** and **Psalm23Transportation@yahoo.com**. Once the separate notification Worker, providers, and Turnstile are configured, **Send Quote Request** submits directly to the business email and queues a text alert. Without that setup, the submit button is explicitly disabled and the email/copy backups remain available. The form does **not** open an SMS app on submission. See `docs/ONLINE-QUOTE-NOTIFICATIONS.md` for activation.
+The website displays **281-766-1320** and **Psalm23Transportation@yahoo.com**. Once the separate notification Worker, providers, and Turnstile are configured, **Send Quote Request** submits directly to the business email. Without that setup, the submit button is explicitly disabled and the email/copy backups remain available. The form does **not** open an SMS app on submission. See `docs/ONLINE-QUOTE-NOTIFICATIONS.md` for activation.
 
 The owner should review and approve the family narrative, all service claims, and the commitment wording before launch.
 
@@ -85,10 +85,7 @@ The public HTML now embeds its complete matching CSS and JavaScript to prevent o
 
 Mobile header, hero, contact form and footer were rebuilt to prevent cramped text, excessive hero height and overlapping footer links. See `docs/MOBILE-LAYOUT-v5.md`. The built site embeds its own CSS and JavaScript to avoid stale-cache styling failures. The GitHub Pages artifact includes `CNAME` for `psalm23transportation.com`.
 
-<<<<<<< HEAD
 
-## v8 — Direct online quote requests (email + SMS)
+## v8 — Direct online quote requests (email only)
 
-See [ONLINE-QUOTE-NOTIFICATIONS.md](docs/ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Twilio SMS, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.
-=======
->>>>>>> c996adfff251fda4a58a609dd80941e1e45aca19
+See [ONLINE-QUOTE-NOTIFICATIONS.md](docs/ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.

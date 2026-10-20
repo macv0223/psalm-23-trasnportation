@@ -16,7 +16,7 @@ for rel in sorted(set(re.findall(r'assets/(?:uploads/)?[a-zA-Z0-9_./\-]+\.(?:web
     d=data_uri(rel)
     if d:html=html.replace(rel,d)
 html=re.sub(r'<link rel="preload"[^>]+>', '', html)
-preview=out/'Psalm23-v8-Online-Quote-Preview.html'
+preview=out/'Psalm23-v9-Email-Only-Preview.html'
 preview.write_text(html)
 
 with sync_playwright() as pw:
@@ -51,7 +51,7 @@ with sync_playwright() as pw:
         if label in ('mobile','desktop'):
             page.evaluate('window.scrollTo(0,0)')
             page.wait_for_timeout(80)
-            file=out/f'Psalm23-v8-{label}-preview.png'
+            file=out/f'Psalm23-v9-{label}-preview.png'
             page.screenshot(path=str(file),full_page=True,animations='disabled')
             print('screenshot',file)
         print('OK',label,width,'images:',len(images))
@@ -63,7 +63,7 @@ with sync_playwright() as pw:
     mock=mock.replace('<button class="button button-gold submit-button"','<input name="cf-turnstile-response" type="hidden" value="test-token-123456"><button class="button button-gold submit-button"')
     marker='<script type="module" id="psalm23-matching-app-js">'
     assert marker in mock
-    mock=mock.replace(marker,'<script>window.__sent=[];window.fetch=async(url,opts)=>{window.__sent.push({url,body:JSON.parse(opts.body)});return {ok:true,json:async()=>({accepted:true,sent:{email:true,sms:true}})};};</script>'+marker)
+    mock=mock.replace(marker,'<script>window.__sent=[];window.fetch=async(url,opts)=>{window.__sent.push({url,body:JSON.parse(opts.body)});return {ok:true,json:async()=>({accepted:true,sent:{email:true}})};};</script>'+marker)
     page=browser.new_page(viewport={'width':390,'height':844})
     errors=[]
     page.on('pageerror', lambda err: errors.append(str(err)))
@@ -81,6 +81,7 @@ with sync_playwright() as pw:
     assert sent[0]['body']['customerEmail']=='alex@example.com',sent
     assert sent[0]['url'].endswith('/api/quote')
     assert not errors,errors
+    assert 'text alert' not in page.locator('#form-status').inner_text().lower()
     print('OK configured frontend POST handler: direct fetch without opening SMS app')
     page.close()
     browser.close()

@@ -82,14 +82,8 @@ if(form){
         signal:controller.signal
       });
       const result=await response.json().catch(()=>null);
-      if(response.ok&&result?.accepted){
-        if(result.sent?.email&&result.sent?.sms){
-          setStatus('Your request has been submitted! The business email alert was accepted and the text alert was queued. We will contact you using the details you provided.','success');
-        }else if(result.sent?.email){
-          setStatus('Your request was submitted by email, but the text alert could not be queued. Please do not resubmit; the business can reply to your contact details.','partial');
-        }else{
-          setStatus('Your request was queued by text, but the email notification failed. Please call the business to confirm rather than submitting twice.','partial');
-        }
+      if(response.ok&&result?.accepted&&result.sent?.email){
+        setStatus('Your quote request has been submitted to our email service. We will contact you using the details you provided.','success');
         form.reset();
       }else{
         const safeMessage=typeof result?.message==='string'&&result.message.length<=220?result.message:'We could not confirm that your request was delivered. Please call or use the email option below.';

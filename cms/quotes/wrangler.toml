@@ -1,20 +1,16 @@
-# Deploy separately from cms/oauth/wrangler.toml, which handles editor login.
+# Deploy this Worker separately from the editable website's OAuth Worker.
 name = "psalm23-quote-notifications"
 main = "worker.mjs"
 compatibility_date = "2026-10-01"
 workers_dev = true
 
 [vars]
-# Exact allowed frontend origins, not complete URLs with paths.
+# Exact permitted public website origins (no paths or trailing slash).
 ALLOWED_ORIGINS = "https://psalm23transportation.com,https://www.psalm23transportation.com,https://macv0223.github.io"
 QUOTE_TO_EMAIL = "Psalm23Transportation@yahoo.com"
-QUOTE_TO_PHONE = "+12817661320"
 
-# Secret values to configure with `npx wrangler secret put NAME -c cms/quotes/wrangler.toml`:
-# TURNSTILE_SECRET_KEY
-# RESEND_API_KEY
-# RESEND_FROM            (a verified domain sender, e.g. quotes@psalm23transportation.com)
-# TWILIO_ACCOUNT_SID
-# TWILIO_AUTH_TOKEN
-# TWILIO_FROM_NUMBER     (approved Twilio sender number in E.164 format)
-# OR TWILIO_MESSAGING_SERVICE_SID
+# Store these privately through Cloudflare dashboard Settings > Variables and Secrets:
+# TURNSTILE_SECRET_KEY (Secret)
+# RESEND_API_KEY (Secret)
+# RESEND_FROM (Text: Psalm 23 Transportation <quotes@psalm23transportation.com>)
+# SMS and Twilio credentials are NOT required for this Worker.

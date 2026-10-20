@@ -36,6 +36,6 @@ The CMS intentionally ships with an empty `oauthOrigin`. Do not interpret the pr
 The live number is **281-766-1320** and the email is **Psalm23Transportation@yahoo.com**. Visitors may call, text, email, or prepare a quote request. The form opens their messaging app with a draft, not a stored or automatically transmitted message.
 
 
-## v8 — Direct online quote requests (email + SMS)
+## v8 — Direct online quote requests (email only)
 
-See [ONLINE-QUOTE-NOTIFICATIONS.md](ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Twilio SMS, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.
+See [ONLINE-QUOTE-NOTIFICATIONS.md](ONLINE-QUOTE-NOTIFICATIONS.md) for the separate Cloudflare notification Worker, Resend email, Turnstile protection, and activation instructions. The form button stays disabled until the public endpoint and site key are set; credentials belong only in Worker secrets.

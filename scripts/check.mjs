@@ -11,7 +11,7 @@ const html=readFileSync(full('dist/index.html'),'utf8');
 if(readFileSync(full('index.html'),'utf8')!==html)throw new Error('Published root index.html differs from build: stale homepage risk');
 // Regression: cached v1 green CSS must never be applied to new HTML.
 if(!html.includes('<style id="psalm23-critical-site-css">')||!html.includes('.value-card')||!html.includes('.service-grid{'))throw new Error('Homepage must contain matching inline black-and-gold CSS');
-if(!html.includes('name="psalm23-build" content="v8-secure-online-quote-service"'))throw new Error('Wrong release is being published');
+if(!html.includes('name="psalm23-build" content="v9-secure-email-only-quotes"'))throw new Error('Wrong release is being published');
 if(!html.includes('<script type="module" id="psalm23-matching-app-js">'))throw new Error('Homepage must contain matching inline JavaScript');
 if(html.includes('<link rel="stylesheet" href="assets/site.css">')||html.includes('<script type="module" src="assets/app.js"></script>'))throw new Error('Homepage still loads old cacheable CSS/JS');
 if(!html.includes('class="icon value-icon"')||!html.includes('.icon{width:22px;height:22px'))throw new Error('SVG sizing CSS missing; icons could render huge');
