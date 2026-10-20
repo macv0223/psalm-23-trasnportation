@@ -86,3 +86,15 @@ test('mobile layout includes a separate hero image and safe footer spacing',()=>
   const html=renderDocument(data);
   assert.match(html,/utility-reliability/);
 });
+
+test('mobile hero overlays existing single CMS heading without duplicating it',()=>{
+  const css=readFileSync(new URL('../public/assets/site.css',import.meta.url),'utf8');
+  const html=renderDocument(data);
+  assert.match(css,/v7: Keep the single, CMS-editable hero heading/);
+  assert.match(css,/\.hero-copy > \.hero-eyebrow,/);
+  assert.match(css,/\.hero-copy > h1 \{ position: absolute;/);
+  assert.match(css,/\.hero-intro \{ margin-top: 0;/);
+  assert.equal((html.match(/<h1 id="hero-title"/g)||[]).length,1);
+  assert.equal((html.match(/class="hero-intro"/g)||[]).length,1);
+  assert.equal((html.match(/class="hero-actions"/g)||[]).length,1);
+});

@@ -1,0 +1,32 @@
+PSALM 23 TRANSPORTATION — v7 FULL WEBSITE
+
+Mobile hero update
+------------------
+* FAITH DRIVES EVERYTHING WE DO and HE LEADS. / WE HAUL. now appear INSIDE
+  the existing dark truck-and-cross picture on screens 640px and narrower.
+* The paragraph, quote/call buttons and puzzle-themed tagline stay underneath.
+* Desktop/tablet design and site text remain unchanged.
+* Existing CMS, artwork, contact details, domain CNAME and GitHub Actions
+  publishing files are included.
+
+FULL ZIP LAYOUT
+---------------
+The ZIP has its actual site files at the root. It contains:
+  index.html, CNAME, assets/, admin/, public/, content/, cms/, scripts/,
+  tests/, dist/, .github/workflows/pages.yml, package.json, README.md
+
+CRITICAL DEPLOY INSTRUCTIONS
+----------------------------
+1. Extract this ZIP on your computer.
+2. Open https://github.com/macv0223/psalm-23-trasnportation
+3. Commit ALL extracted files and folders to main, with index.html at the
+   repository ROOT, not inside an enclosing folder. Include .github/.
+4. Use Settings > Pages > Source: GitHub Actions and wait for it to finish.
+5. Open https://psalm23transportation.com/ (or the GitHub Pages URL).
+
+Do not delete existing site files or replace the repository with only CNAME.
+
+The static website and editor files are included. Live editor sign-in depends
+on the existing separately configured GitHub/Cloudflare OAuth Worker.
+
+For details, see docs/MOBILE-HERO-OVERLAY-v7.md and docs/DEPLOY.md.
